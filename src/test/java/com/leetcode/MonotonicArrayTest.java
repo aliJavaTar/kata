@@ -1,10 +1,9 @@
 package com.leetcode;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MonotonicArrayTest {
     private MonotonicArray monotonicArray;
@@ -69,20 +68,20 @@ class MonotonicArrayTest {
         assertThat(isIncreasing1).isFalse();
 
         boolean isIncreasing2 = monotonicArray.isMonotonic(new int[]{7, 25, 4});
-        assertThat(isIncreasing2).isTrue();
+        assertThat(isIncreasing2).isFalse();
 
         boolean isIncreasing3 = monotonicArray.isMonotonic(new int[]{5, 10, 1});
-        assertThat(isIncreasing3).isTrue();
+        assertThat(isIncreasing3).isFalse();
 
 
         boolean isIncreasing4 = monotonicArray.isMonotonic(new int[]{4, 1, 8});
-        assertThat(isIncreasing4).isTrue();
+        assertThat(isIncreasing4).isFalse();
 
-        boolean isIncreasing5 = monotonicArray.isMonotonic(new int[]{8, 7, 7});
-        assertThat(isIncreasing5).isTrue();
+        boolean isIncreasing5 = monotonicArray.isMonotonic(new int[]{8, 7, 48});
+        assertThat(isIncreasing5).isFalse();
 
-        boolean isIncreasing6 = monotonicArray.isMonotonic(new int[]{4, 3, 3});
-        assertThat(isIncreasing6).isTrue();
+        boolean isIncreasing6 = monotonicArray.isMonotonic(new int[]{4, 3, 8});
+        assertThat(isIncreasing6).isFalse();
 
     }
 
