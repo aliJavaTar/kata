@@ -61,7 +61,7 @@ class MonotonicArrayTest {
 
     }
 
-    @Test
+
     void should_return_false_if_array_NOT_monotone_decreasing_AND_increasing() {
 
         boolean isIncreasing1 = monotonicArray.isMonotonic(new int[]{1, 3, 2});
@@ -86,16 +86,30 @@ class MonotonicArrayTest {
 
         boolean isIncreasing7 = monotonicArray.isMonotonic(new int[]{1, 3, 2});
         assertThat(isIncreasing7).isFalse();
+
+        boolean isIncreasing8 = monotonicArray.isMonotonic(new int[]{1, 3, 2, 4});
+        assertThat(isIncreasing8).isFalse();
+
+
+        boolean isIncreasing9 = monotonicArray.isMonotonic(new int[]{4, 2, 3, 1});
+        assertThat(isIncreasing9).isFalse();
+
+        boolean isIncreasing10 = monotonicArray.isMonotonic(new int[]{1, 3, 2, 4, 2, 4});
+        assertThat(isIncreasing10).isFalse();
+
+
+        boolean isIncreasing11 = monotonicArray.isMonotonic(new int[]{4, 2, 3, 1, 2});
+        assertThat(isIncreasing11).isFalse();
+
     }
 
- @Test
+    @Test
     void should_return_true_if_array_number_equal() {
 
         boolean isIncreasing1 = monotonicArray.isMonotonic(new int[]{1, 1, 1});
         assertThat(isIncreasing1).isTrue();
 
-        boolean isIncreasing2 = monotonicArray.isMonotonic(new int[]{1,3,2,4});
-        assertThat(isIncreasing2).isFalse();
+
     }
 
 
