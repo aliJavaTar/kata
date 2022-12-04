@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MonotonicArrayTest {
-    private MonotonicArray monotonicArray;
+    private Solution monotonicArray;
 
     @BeforeEach
     void setUp() {
-        monotonicArray = new MonotonicArray();
+        monotonicArray = new Solution();
     }
 
     @Test
@@ -59,9 +59,12 @@ class MonotonicArrayTest {
         boolean isIncreasing6 = monotonicArray.isMonotonic(new int[]{4, 3, 3});
         assertThat(isIncreasing6).isTrue();
 
+        boolean isIncreasing7 = monotonicArray.isMonotonic(new int[]{1, 2, 2, 3});
+        assertThat(isIncreasing7).isTrue();
+
     }
 
-
+    @Test
     void should_return_false_if_array_NOT_monotone_decreasing_AND_increasing() {
 
         boolean isIncreasing1 = monotonicArray.isMonotonic(new int[]{1, 3, 2});
