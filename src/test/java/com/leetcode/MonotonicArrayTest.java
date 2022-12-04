@@ -83,6 +83,20 @@ class MonotonicArrayTest {
         boolean isIncreasing6 = monotonicArray.isMonotonic(new int[]{4, 3, 8});
         assertThat(isIncreasing6).isFalse();
 
+
+        boolean isIncreasing7 = monotonicArray.isMonotonic(new int[]{1, 3, 2});
+        assertThat(isIncreasing7).isFalse();
     }
+
+ @Test
+    void should_return_true_if_array_number_equal() {
+
+        boolean isIncreasing1 = monotonicArray.isMonotonic(new int[]{1, 1, 1});
+        assertThat(isIncreasing1).isTrue();
+
+        boolean isIncreasing2 = monotonicArray.isMonotonic(new int[]{1,3,2,4});
+        assertThat(isIncreasing2).isFalse();
+    }
+
 
 }
