@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MonotonicArrayTest {
-    private MonotonicArray monotonicArray;
+    private Solution monotonicArray;
 
     @BeforeEach
     void setUp() {
-        monotonicArray = new MonotonicArray();
+        monotonicArray = new Solution();
     }
 
     @Test
@@ -59,6 +59,9 @@ class MonotonicArrayTest {
         boolean isIncreasing6 = monotonicArray.isMonotonic(new int[]{4, 3, 3});
         assertThat(isIncreasing6).isTrue();
 
+        boolean isIncreasing7 = monotonicArray.isMonotonic(new int[]{1, 2, 2, 3});
+        assertThat(isIncreasing7).isTrue();
+
     }
 
     @Test
@@ -82,12 +85,35 @@ class MonotonicArrayTest {
 
         boolean isIncreasing6 = monotonicArray.isMonotonic(new int[]{4, 3, 8});
         assertThat(isIncreasing6).isFalse();
+
+
+        boolean isIncreasing7 = monotonicArray.isMonotonic(new int[]{1, 3, 2});
+        assertThat(isIncreasing7).isFalse();
+
+        boolean isIncreasing8 = monotonicArray.isMonotonic(new int[]{1, 3, 2, 4});
+        assertThat(isIncreasing8).isFalse();
+
+
+        boolean isIncreasing9 = monotonicArray.isMonotonic(new int[]{4, 2, 3, 1});
+        assertThat(isIncreasing9).isFalse();
+
+        boolean isIncreasing10 = monotonicArray.isMonotonic(new int[]{1, 3, 2, 4, 2, 4});
+        assertThat(isIncreasing10).isFalse();
+
+
+        boolean isIncreasing11 = monotonicArray.isMonotonic(new int[]{4, 2, 3, 1, 2});
+        assertThat(isIncreasing11).isFalse();
+
     }
 
     @Test
-    void should_return_true_if_monotone_decreasing_AND_increasing() {
-        boolean isIncreasing = monotonicArray.isMonotonic(new int[]{1, 2, 4, 5});
-        assertThat(isIncreasing).isTrue();
+    void should_return_true_if_array_number_equal() {
+
+        boolean isIncreasing1 = monotonicArray.isMonotonic(new int[]{1, 1, 1});
+        assertThat(isIncreasing1).isTrue();
+
+
     }
+
 
 }
