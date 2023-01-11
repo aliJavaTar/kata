@@ -82,7 +82,12 @@ class MonotonicArrayTest {
 
         boolean isIncreasing6 = monotonicArray.isMonotonic(new int[]{4, 3, 8});
         assertThat(isIncreasing6).isFalse();
+    }
 
+    @Test
+    void should_return_true_if_monotone_decreasing_AND_increasing() {
+        boolean isIncreasing = monotonicArray.isMonotonic(new int[]{1, 2, 4, 5});
+        assertThat(isIncreasing).isTrue();
     }
 
 }
