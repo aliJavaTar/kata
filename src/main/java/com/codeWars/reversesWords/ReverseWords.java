@@ -1,7 +1,5 @@
 package com.codeWars.reversesWords;
 
-import java.util.Arrays;
-
 public class ReverseWords {
     public String reversWords(String words) {
 
@@ -12,7 +10,7 @@ public class ReverseWords {
             reversWord[count] = words.charAt(index);
             count++;
         }
-       return String.valueOf(reversWord);
+        return String.valueOf(reversWord);
 
     }
 }
