@@ -1,7 +1,7 @@
 package com.codeWars.square;
 
 public class SquareSum {
-    public int squareSum(int[] n) {
+    public int sum(int[] n) {
         return 0;
     }
 }
