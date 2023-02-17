@@ -8,25 +8,19 @@ public class Dinglemouse {
         if (catYears == 24 && dogYears == 24)
             return new int[]{2, 2};
 
-        return new int[]{calculateAgeOfHumanBasedAgeCat(catYears), calculateAgeOfHumanBasedAgeDog(dogYears)};
-
+        return calculate(catYears, dogYears);
     }
 
-    int calculateAgeOfHumanBasedAgeCat(int catAge) {
+
+    private int[] calculate(int catAge, int dogAge) {
         int humanAge = 2;
+        int humanBasedCat = getNumber(catAge) / 4;
+        int humanBasedDag = getNumber(dogAge) / 5;
 
-        int number = getNumber(catAge) / 4;
+        humanBasedCat = getHumanAge(humanAge, humanBasedCat);
+        humanBasedDag = getHumanAge(humanAge, humanBasedDag);
 
-        return  getHumanAge(humanAge, number);
-
-    }
-
-    private int calculateAgeOfHumanBasedAgeDog(int dogAge) {
-        int humanAge = 2;
-
-        int number = getNumber(dogAge) / 5;
-
-        return getHumanAge(humanAge, number);
+        return new int[]{humanBasedCat, humanBasedDag};
 
     }
 
