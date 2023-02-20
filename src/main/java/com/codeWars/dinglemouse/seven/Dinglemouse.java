@@ -1,37 +1,43 @@
 package com.codeWars.dinglemouse.seven;
 
 public class Dinglemouse {
-    public int[] ownedCatAndDog(final int catYears, final int dogYears) {
-        if (catYears == 15 && dogYears == 15)
-            return new int[]{1, 1};
+    public static int[] ownedCatAndDog(final int catYears, final int dogYears) {
+        if (catYears < 15 && dogYears < 15)
+            return new int[]{0, 0};
+        int humanAgeOfCat =
+                calculateAgeOfHumanBasedAgeCat(catYears);
 
-        if (catYears == 24 && dogYears == 24)
-            return new int[]{2, 2};
+        int humanAgeOfDog =
+                calculateAgeOfHumanBasedAgeDog(dogYears);
 
-        return calculate(catYears, dogYears);
+        return new int[]{humanAgeOfCat, humanAgeOfDog};
     }
 
+    private static int calculateAgeOfHumanBasedAgeCat(int catAge) {
 
-    private int[] calculate(int catAge, int dogAge) {
-        int humanAge = 2;
-        int humanBasedCat = getNumber(catAge) / 4;
-        int humanBasedDag = getNumber(dogAge) / 5;
-
-        humanBasedCat = getHumanAge(humanAge, humanBasedCat);
-        humanBasedDag = getHumanAge(humanAge, humanBasedDag);
-
-        return new int[]{humanBasedCat, humanBasedDag};
-
-    }
-
-    private static int getHumanAge(int humanAge, int number) {
-        for (int index = 0; index < number; index++) {
-            humanAge += 1;
+        if (catAge < 15)
+            return 0;
+        if (catAge < 24)
+            return 1;
+        int age = 1;
+        for (int index = 24; index <= catAge; index += 4) {
+            age++;
         }
-        return humanAge;
+        return age;
+
     }
 
-    private static int getNumber(int dogAge) {
-        return dogAge - 24;
+    private static int calculateAgeOfHumanBasedAgeDog(int dogAge) {
+
+        if (dogAge < 15)
+            return 0;
+        if (dogAge < 24)
+            return 1;
+        int age = 1;
+        for (int index = 24; index <= dogAge; index += 5) {
+            age++;
+        }
+        return age;
+
     }
 }
