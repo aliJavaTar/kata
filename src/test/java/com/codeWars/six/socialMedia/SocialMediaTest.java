@@ -1,7 +1,8 @@
 package com.codeWars.six.socialMedia;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SocialMediaTest {
     @Test
@@ -9,15 +10,21 @@ class SocialMediaTest {
         SocialMedia media = new SocialMedia();
 
         String name = media.whoLikesIt("");
-        Assertions.assertThat(name).isEqualTo("no one likes this");
+        assertThat(name).isEqualTo("no one likes this");
 
 
         String petter = media.whoLikesIt("Peter");
-        Assertions.assertThat(petter).isEqualTo("Peter likes this");
+        assertThat(petter).isEqualTo("Peter likes this");
 
 
-        String names = media.whoLikesIt("Jacob","Alex");
-        Assertions.assertThat(names).isEqualTo("Jacob and Alex like this");
+        String names = media.whoLikesIt("Jacob", "Alex");
+        assertThat(names).isEqualTo("Jacob and Alex like this");
+
+        String three_names = media.whoLikesIt("Max", "John", "Mark");
+        assertThat(three_names).isEqualTo("Max, John and Mark like this");
+
+        String four_names = media.whoLikesIt("Alex", "Jacob", "Mark", "Max");
+        assertThat(four_names).isEqualTo("Alex, Jacob and 2 others like this");
     }
 
 }
