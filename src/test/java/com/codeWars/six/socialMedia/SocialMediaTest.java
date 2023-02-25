@@ -9,8 +9,11 @@ class SocialMediaTest {
     void should_find_name_of_Likes_post_and_give_his_or_her_name() {
         SocialMedia media = new SocialMedia();
 
-        String name = media.whoLikesIt("");
-        assertThat(name).isEqualTo("no one likes this");
+//        String name = media.whoLikesIt("");
+//        assertThat(name).isEqualTo("no one likes this");
+
+        String name1 = media.whoLikesIt();
+        assertThat(name1).isEqualTo("no one likes this");
 
 
         String petter = media.whoLikesIt("Peter");
