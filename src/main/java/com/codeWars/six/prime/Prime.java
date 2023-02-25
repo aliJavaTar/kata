@@ -1,4 +1,4 @@
-package com.codeWars.six.Prime;
+package com.codeWars.six.prime;
 
 public class Prime {
     public boolean isPrime(int num) {
