@@ -19,8 +19,16 @@ class RepeatItTest {
     void shouldGiveWhenToRepeatIsNotString() {
         RepeatIt repeat = new RepeatIt();
 
-        String message = repeat.repeatString(23, 11);
+        String message = repeat.repeatString("hi", 2);
 
-        Assertions.assertThat(message).isEqualTo("Not a string");
+        Assertions.assertThat(message).isEqualTo("hihi");
+
+        String text = repeat.repeatString("*", 3);
+
+        Assertions.assertThat(text).isEqualTo("***");
+
+        String test = repeat.repeatString("Hi", 0);
+
+        Assertions.assertThat(test).isEmpty();
     }
 }
