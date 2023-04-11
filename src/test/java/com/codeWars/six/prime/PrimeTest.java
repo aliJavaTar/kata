@@ -1,4 +1,4 @@
-package com.codeWars.six.Prime;
+package com.codeWars.six.prime;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
