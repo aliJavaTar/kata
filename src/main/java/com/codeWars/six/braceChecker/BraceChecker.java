@@ -6,22 +6,23 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public class BraceChecker {
-    private static final Map<Character, Integer> CountOfCharacter = new HashMap<>();
+    private  final Map<Character, Integer> countOfCharacter = new HashMap<>();
 
-    private static void intiMap() {
-        CountOfCharacter.put('(', 0);
-        CountOfCharacter.put('[', 0);
-        CountOfCharacter.put('{', 0);
-        CountOfCharacter.put(')', 0);
-        CountOfCharacter.put(']', 0);
-        CountOfCharacter.put('}', 0);
+    private void intiMap() {
+        countOfCharacter.put('(', 0);
+        countOfCharacter.put('[', 0);
+        countOfCharacter.put('{', 0);
+        countOfCharacter.put(')', 0);
+        countOfCharacter.put(']', 0);
+        countOfCharacter.put('}', 0);
     }
 
     public boolean isValid(String braces) {
+
         intiMap();
-        CountOfCharacter.keySet().forEach(character -> {
+        countOfCharacter.keySet().forEach(character -> {
             int count = (int) braces.chars().filter(ch -> ch == character).count();
-            CountOfCharacter.put(character, count);
+            countOfCharacter.put(character, count);
         });
 
 
@@ -31,7 +32,7 @@ public class BraceChecker {
         if (braces.length() == 1 || !noneMatch)
             return false;
 
-        //   [ ( ]  )
+
         for (int index = 0; index < braces.length() - 1; index++) {
 
             if ((braces.charAt(index) == '(' && (braces.charAt(index + 1) == ']' || braces.charAt(index + 1) == '}'))
@@ -41,17 +42,19 @@ public class BraceChecker {
 
 
         }
-        /*
 
 
-         */
 
-
-        return Objects.equals(CountOfCharacter.get('('), CountOfCharacter.get(')'))
-                && Objects.equals(CountOfCharacter.get('['), CountOfCharacter.get(']'))
-                && Objects.equals(CountOfCharacter.get('{'), CountOfCharacter.get('}'));
+        return Objects.equals(countOfCharacter.get('('), countOfCharacter.get(')'))
+                && Objects.equals(countOfCharacter.get('['), countOfCharacter.get(']'))
+                && Objects.equals(countOfCharacter.get('{'), countOfCharacter.get('}'));
 
 
     }
 }
+
+/*
+Testing "())({}}{()][]["
+Incorrect answer for "())({}}{()][][" ==> expected: <false> but was: <true>
+ */
 
