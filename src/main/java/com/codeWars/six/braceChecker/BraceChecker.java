@@ -8,10 +8,28 @@ public class BraceChecker {
         if (braces.length() == 1)
             return false;
 
-        return Stream.of(")", "}", "]")
+        boolean noneMatch = Stream.of(")", "}", "]")
                 .noneMatch(s -> s.startsWith(String.valueOf(braces.charAt(0))));
 
-//        braces.chars().mapToObj(value -> (char) value)
+        if (!noneMatch)
+            return false;
 
+        long countOfStartP = getCountOfCharacter(braces, '(');
+        long countOfStartA = getCountOfCharacter(braces, '[');
+        long countOfStartB = getCountOfCharacter(braces, '{');
+
+        long countOfEndP = getCountOfCharacter(braces, ')');
+        long countOfEndA = getCountOfCharacter(braces, ']');
+        long countOfEndB = getCountOfCharacter(braces, '}');
+
+        if (countOfStartP != countOfEndP || countOfStartA != countOfEndA || countOfStartB != countOfEndB)
+            return false;
+
+
+        return true;
+    }
+
+    private long getCountOfCharacter(String braces, char x) {
+        return braces.chars().filter(ch -> ch == x).count();
     }
 }

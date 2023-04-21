@@ -41,19 +41,11 @@ class BraceCheckerTest {
         assertFalse(brace.isValid(value));
     }
 
-    @Test
-    void should_give_false_when_order_of_the_braces_is_not_valid_braces() {
-        String value = "[({})](]";
+    @ParameterizedTest
+    @ValueSource(strings = {"[({})](]", "[({})](]","[(])"})
+    void should_give_false_when_order_of_the_braces_is_not_valid_braces(String value) {
         assertFalse(brace.isValid(value));
 
-        String value1 = ")(()))";
-        assertFalse(brace.isValid(value1));
-
-        String value2 = "({[()]})";
-        assertFalse(brace.isValid(value2));
-
-        String value3 = "[({})](]";
-        assertFalse(brace.isValid(value3));
     }
 
 }
