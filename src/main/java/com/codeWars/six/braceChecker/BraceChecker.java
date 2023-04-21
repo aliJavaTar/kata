@@ -1,35 +1,49 @@
 package com.codeWars.six.braceChecker;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public class BraceChecker {
+    private static final Map<Character, Integer> CountOfCharacter = new HashMap<>();
+
+    private static void intiMap() {
+        CountOfCharacter.put('(', 0);
+        CountOfCharacter.put('[', 0);
+        CountOfCharacter.put('{', 0);
+        CountOfCharacter.put(')', 0);
+        CountOfCharacter.put(']', 0);
+        CountOfCharacter.put('}', 0);
+    }
 
     public boolean isValid(String braces) {
-        if (braces.length() == 1)
-            return false;
+        intiMap();
+        CountOfCharacter.keySet().forEach(character -> {
+            int count = (int) braces.chars().filter(ch -> ch == character).count();
+            CountOfCharacter.put(character, count);
+        });
+
 
         boolean noneMatch = Stream.of(")", "}", "]")
                 .noneMatch(s -> s.startsWith(String.valueOf(braces.charAt(0))));
 
-        if (!noneMatch)
-            return false;
-
-        long countOfStartP = getCountOfCharacter(braces, '(');
-        long countOfStartA = getCountOfCharacter(braces, '[');
-        long countOfStartB = getCountOfCharacter(braces, '{');
-
-        long countOfEndP = getCountOfCharacter(braces, ')');
-        long countOfEndA = getCountOfCharacter(braces, ']');
-        long countOfEndB = getCountOfCharacter(braces, '}');
-
-        if (countOfStartP != countOfEndP || countOfStartA != countOfEndA || countOfStartB != countOfEndB)
+        if (braces.length() == 1 || !noneMatch)
             return false;
 
 
-        return true;
-    }
+        return Objects.equals(CountOfCharacter.get('('), CountOfCharacter.get(')'))
+                && Objects.equals(CountOfCharacter.get('['), CountOfCharacter.get(']'))
+                && Objects.equals(CountOfCharacter.get('{'), CountOfCharacter.get('}'));
+/*
 
-    private long getCountOfCharacter(String braces, char x) {
-        return braces.chars().filter(ch -> ch == x).count();
+           [ ( ] )
+
+            [  ]
+
+            ( [ ) ]
+ */
+
     }
 }
+
