@@ -31,18 +31,26 @@ public class BraceChecker {
         if (braces.length() == 1 || !noneMatch)
             return false;
 
+        //   [ ( ]  )
+        for (int index = 0; index < braces.length() - 1; index++) {
+
+            if ((braces.charAt(index) == '(' && (braces.charAt(index + 1) == ']' || braces.charAt(index + 1) == '}'))
+                    || (braces.charAt(index) == '[' && (braces.charAt(index + 1) == ')' || braces.charAt(index + 1) == '}'))
+                    || (braces.charAt(index) == '{' && (braces.charAt(index + 1) == ')' || braces.charAt(index + 1) == ']')))
+                return false;
+
+
+        }
+        /*
+
+
+         */
+
 
         return Objects.equals(CountOfCharacter.get('('), CountOfCharacter.get(')'))
                 && Objects.equals(CountOfCharacter.get('['), CountOfCharacter.get(']'))
                 && Objects.equals(CountOfCharacter.get('{'), CountOfCharacter.get('}'));
-/*
 
-           [ ( ] )
-
-            [  ]
-
-            ( [ ) ]
- */
 
     }
 }
