@@ -1,7 +1,7 @@
 package com.codeWars.six.find_out_lier;
 
 public class FindOutlier {
-    public int find(int[] integers) {
+    public static int find(int[] integers) {
         int countOfEven = 0;
         int countOfOdd = 0;
 
@@ -27,7 +27,7 @@ public class FindOutlier {
         return 0;
     }
 
-    private boolean isEven(int number) {
+    private static boolean isEven(int number) {
         return number % 2 == 0;
     }
 }
