@@ -42,7 +42,7 @@ class BraceCheckerTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"[({})](]", "[({})](]","[(])"})
+    @ValueSource(strings = {"[({})](]", "[({})](]", "[(])", "())({}}{()][]["})
     void should_give_false_when_order_of_the_braces_is_not_valid_braces(String value) {
         assertFalse(brace.isValid(value));
 
