@@ -5,36 +5,50 @@ import java.util.Map;
 
 public class RomanNumeralsEncoder {
 
-    private final Map<Integer, String> romanNumeralMap;
+    private final Map<Integer, String> romanNumeralSymbols;
     private int arabicNumber;
+
 
     public RomanNumeralsEncoder(int arabicNumber) {
         this.arabicNumber = arabicNumber;
-        romanNumeralMap = new LinkedHashMap<>();
-        romanNumeralMap.put(5, "V");
-        romanNumeralMap.put(10, "X");
-        romanNumeralMap.put(50, "L");
+        romanNumeralSymbols = new LinkedHashMap<>();
+        romanNumeralSymbols.put(1000, "M");
+        romanNumeralSymbols.put(900, "CM");
+        romanNumeralSymbols.put(500, "D");
+        romanNumeralSymbols.put(400, "CD");
+        romanNumeralSymbols.put(100, "C");
+        romanNumeralSymbols.put(90, "XC");
+        romanNumeralSymbols.put(50, "L");
+        romanNumeralSymbols.put(40, "XL");
+        romanNumeralSymbols.put(10, "X");
+        romanNumeralSymbols.put(9, "IX");
+        romanNumeralSymbols.put(5, "V");
+        romanNumeralSymbols.put(4, "IV");
+        romanNumeralSymbols.put(1, "I");
     }
 
     public String converter() {
         StringBuilder romaNumerals = new StringBuilder();
-        romaNumerals.append(extracted(50));
-        romaNumerals.append(extracted(10));
-        romaNumerals.append(extracted(5));
+        romanNumeralSymbols.keySet()
+                .forEach(number -> romaNumerals.append(findSymbol(number)));
 
-        for (int index = 0; index < arabicNumber; index++) {
-            romaNumerals.append("I");
-        }
+
         return romaNumerals.toString();
 
     }
 
-    private StringBuilder extracted(int i) {
-        StringBuilder romaNumerals = new StringBuilder();
-        while (arabicNumber >= i) {
-            romaNumerals.append(romanNumeralMap.get(i));
-            arabicNumber -= i;
+    private StringBuilder findSymbol(int number) {
+        StringBuilder romanNumeral = new StringBuilder();
+        while (arabicNumber >= number) {
+            final String romanSymbol = romanNumeralSymbols.get(number);
+            romanNumeral.append(romanSymbol);
+            arabicNumber -= number;
+
         }
-        return romaNumerals;
+        return romanNumeral;
     }
 }
+
+
+
+
