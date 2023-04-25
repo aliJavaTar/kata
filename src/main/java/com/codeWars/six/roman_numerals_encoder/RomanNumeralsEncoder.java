@@ -1,27 +1,40 @@
 package com.codeWars.six.roman_numerals_encoder;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class RomanNumeralsEncoder {
 
+    private final Map<Integer, String> romanNumeralMap;
+    private int arabicNumber;
 
-    public String converter(int number) {
+    public RomanNumeralsEncoder(int arabicNumber) {
+        this.arabicNumber = arabicNumber;
+        romanNumeralMap = new LinkedHashMap<>();
+        romanNumeralMap.put(5, "V");
+        romanNumeralMap.put(10, "X");
+        romanNumeralMap.put(50, "L");
+    }
+
+    public String converter() {
         StringBuilder romaNumerals = new StringBuilder();
-        if (number >= 50) {
-            romaNumerals.append("L");
-            number -= 50;
-        }
-        while (number >= 10) {
-            romaNumerals.append("X");
-            number -= 10;
-        }
-        if (number >= 5) {
-            romaNumerals.append("V");
-            number -= 5;
-        }
+        romaNumerals.append(extracted(50));
+        romaNumerals.append(extracted(10));
+        romaNumerals.append(extracted(5));
 
-        for (int index = 0; index < number; index++) {
+        for (int index = 0; index < arabicNumber; index++) {
             romaNumerals.append("I");
         }
         return romaNumerals.toString();
 
+    }
+
+    private StringBuilder extracted(int i) {
+        StringBuilder romaNumerals = new StringBuilder();
+        while (arabicNumber >= i) {
+            romaNumerals.append(romanNumeralMap.get(i));
+            arabicNumber -= i;
+        }
+        return romaNumerals;
     }
 }
