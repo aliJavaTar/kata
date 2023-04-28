@@ -28,6 +28,8 @@ public class FindOutlier {
     }
 
     private static boolean isEven(int number) {
+//        int[] array = Arrays.stream(integers).filter(i -> i % 2 == 0).toArray();
+//        return array.length == 1 ? array[0] : Arrays.stream(integers).filter(i -> i % 2 != 0).findAny().getAsInt();
         return number % 2 == 0;
     }
 }
