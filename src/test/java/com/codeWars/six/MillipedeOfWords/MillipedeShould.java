@@ -9,7 +9,9 @@ class MillipedeShould {
     void the_last_letter_of_one_word_and_the_first_letter_of_another_word_are_the_same()
     {
         Millipede millipede = new Millipede();
-        String[] message = {"ali", "light", "tolerant"};
+
+        String[] message = {"ali", "it", "tolerant"};
+
         Assertions.assertTrue(millipede.checkWords(message));
     }
 
