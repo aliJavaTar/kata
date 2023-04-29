@@ -1,7 +1,7 @@
 package com.codeWars.six.MillipedeOfWords;
 
 public class Millipede {
-    public boolean check(String[] millipede) {
+    public boolean checkWords(String[] millipede) {
         return true;
     }
 }
