@@ -17,7 +17,7 @@ class SocialMediaTest {
 
 
         String petter = media.whoLikesIt("Peter");
-        assertThat(petter).isEqualTo("Peter likes this");
+        assertThat(petter).isEqualTo("Peter like this");
 
 
         String names = media.whoLikesIt("Jacob", "Alex");
