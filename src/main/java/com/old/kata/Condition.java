@@ -1,4 +1,4 @@
-package com.kata;
+package com.old.kata;
 
 public class Condition {
 
