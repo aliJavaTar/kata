@@ -1,8 +1,6 @@
 package com.leetcode.easy;
 
-import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
 class TowSumTest {
 
