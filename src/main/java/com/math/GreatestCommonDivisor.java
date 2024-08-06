@@ -12,4 +12,23 @@ public record GreatestCommonDivisor(int firstNumber, int secondNumber) {
         }
         return min;
     }
+
+//    public int calculate(int a, int b) {
+//        while (a != b) {
+//            if (a > b)
+//                a = a - b;
+//            else
+//                b = b - a;
+//        }
+//
+//        return a;
+//    }
+
+    public int calculate(int a, int b)
+    {
+        if(b==0)
+            return a;
+
+        return calculate(b, a % b);
+    }
 }
