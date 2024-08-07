@@ -24,7 +24,7 @@ class SearchSequenceShould {
     @MethodSource("calculateTestCases")
     void calculateTest(List<Integer> list, List<Integer> numbers, List<Integer> expectedResult) {
         SearchSequence searchSequence = new SearchSequence();
-        List<Integer> result = searchSequence.calculate(list, numbers);
+        List<Integer> result = searchSequence.calculateFunctional(list, numbers);
         assertEquals(expectedResult, result);
     }
 
