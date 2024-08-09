@@ -22,9 +22,9 @@ public class SearchSequence {
         return result;
     }
 
-    public List<Integer> calculateFunctional(List<Integer> baseListOfNumbers, List<Integer> comparisonValue) {
-        return comparisonValue.stream()
-                .map(number -> Math.toIntExact(getCountOfSmaller(baseListOfNumbers, number))).toList();
+    public  List<Integer> calculateFunctional(List<Integer> list, List<Integer> numbers) {
+        return numbers.stream()
+                .map(number -> Math.toIntExact(getCountOfSmaller(list, number))).toList();
     }
 
     private static long getCountOfSmaller(List<Integer> list, Integer number) {
