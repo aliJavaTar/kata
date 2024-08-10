@@ -2,7 +2,6 @@ package com.old.quera;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class SearchSequence {
 
@@ -24,11 +23,8 @@ public class SearchSequence {
 
     public List<Integer> calculateFunctional(List<Integer> baseListOfNumbers, List<Integer> comparisonValue) {
         return comparisonValue.stream()
-                .map(number -> Math.toIntExact(getCountOfSmaller(baseListOfNumbers, number))).toList();
-    }
-
-    private static long getCountOfSmaller(List<Integer> list, Integer number) {
-        return list.stream().filter(listItem -> listItem < number).count();
+                .map(number -> Math.toIntExact(baseListOfNumbers.stream()
+                        .filter(listItem -> listItem < number).count())).toList();
     }
 
 }
