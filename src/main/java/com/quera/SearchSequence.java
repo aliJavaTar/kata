@@ -1,8 +1,7 @@
-package com.old.quera;
+package com.quera;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class SearchSequence {
 
@@ -22,10 +21,10 @@ public class SearchSequence {
         return result;
     }
 
-    public  List<Integer> calculateFunctional(List<Integer> list, List<Integer> numbers) {
-        return numbers.stream()
-                .map(number -> Math.toIntExact(list.stream().filter(listItem -> listItem < number).count()))
-                .toList();
+    public List<Integer> calculateFunctional(List<Integer> baseListOfNumbers, List<Integer> comparisonValue) {
+        return comparisonValue.stream()
+                .map(number -> Math.toIntExact(baseListOfNumbers.stream()
+                        .filter(listItem -> listItem < number).count())).toList();
     }
 
 }

@@ -1,4 +1,5 @@
-package com.old.quera;
+package com.quera;
+
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
