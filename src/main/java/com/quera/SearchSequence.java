@@ -1,4 +1,4 @@
-package com.old.quera;
+package com.quera;
 
 import java.util.ArrayList;
 import java.util.List;
