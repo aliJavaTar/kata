@@ -1,18 +1,18 @@
 package com.quera;
 
 public class ArithmeticSequence {
-    public static int calculateMinimumChanges(int n, int k, int[] sequence) {
+    public static int calculateMinimumChanges(int number, int key, int[] sequence) {
         // Find minimum and maximum values in the sequence
         int minVal = Integer.MAX_VALUE;
         int maxVal = Integer.MIN_VALUE;
 
-        for (int i = 0; i < n; i++) {
-            minVal = Math.min(minVal, sequence[i]);
-            maxVal = Math.max(maxVal, sequence[i]);
+        for (int index = 0; index < number; index++) {
+            minVal = Math.min(minVal, sequence[index]);
+            maxVal = Math.max(maxVal, sequence[index]);
         }
 
         // Determine the range for x
-        int minX = minVal - (n - 1) * k;
+        int minX = minVal - (number - 1) * key;
         int maxX = maxVal;
 
         int minOperations = Integer.MAX_VALUE;
@@ -20,8 +20,8 @@ public class ArithmeticSequence {
         // Iterate over all possible values of x within the range
         for (int x = minX; x <= maxX; x++) {
             int operations = 0;
-            for (int i = 0; i < n; i++) {
-                int targetValue = x + i * k;
+            for (int i = 0; i < number; i++) {
+                int targetValue = x + i * key;
                 operations += Math.abs(sequence[i] - targetValue);
             }
             minOperations = Math.min(minOperations, operations);
