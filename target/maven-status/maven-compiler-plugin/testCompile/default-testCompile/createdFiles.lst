@@ -1,5 +1,12 @@
+com/math/GreatestCommonDivisorShould.class
 CollectionShould.class
+com/data_structure/LinkedListTest.class
 com/math/FactorialShould.class
+com/math/FactorialDigitTest.class
 com/math/NumberShould.class
 com/math/CountShould.class
 com/math/TrailingZerosShould.class
+com/quera/SearchSequenceShould.class
+com/quera/ArithmeticSequenceShould.class
+com/math/PrimeNumberTest.class
+com/math/LcmShould.class
