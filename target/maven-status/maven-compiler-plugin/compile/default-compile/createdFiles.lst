@@ -1,5 +1,15 @@
+com/math/NthDigit.class
 com/math/Factorial.class
+com/quera/SearchSequence.class
+com/math/GreatestCommonDivisor.class
+com/data_structure/Node.class
+com/math/FactorialDigit.class
+com/math/PrimeFactor.class
 com/old/kata/Condition.class
 com/math/Count.class
+com/data_structure/LinkedList.class
 com/math/TrailingZeros.class
+com/quera/ArithmeticSequence.class
+com/math/Lcm.class
+com/math/PrimeNumber.class
 com/math/Number.class
