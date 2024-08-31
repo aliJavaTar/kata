@@ -13,7 +13,7 @@ public class BigInt {
         this.digits.add(0);
     }
 
-    public BigInt() {
+    private BigInt() {
         this.digits = new ArrayList<>(); // Initialize the digits list as an empty list.
         this.digits.add(0); // Initialize it to represent the number zero.
     }
