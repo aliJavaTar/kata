@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BigInt {
-    public static final int NUMBER = 10;
-    public static final int CARRY_INCREMENT = 1;
+    private static final int NUMBER = 10;
+    private static final int CARRY_INCREMENT = 1;
     private final List<Integer> digits;
 
     public BigInt(List<Integer> digits) {
@@ -110,4 +110,21 @@ public class BigInt {
     public boolean isZero() {
         return digits.size() == 1 && digits.get(0) == 0;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            sb.append(digits.get(i));
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        BigInt bigInt = new BigInt("123");
+        BigInt other = new BigInt("1");
+        BigInt add = bigInt.add(other);
+        System.out.println(add);
+    }
+
 }
