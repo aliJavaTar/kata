@@ -42,6 +42,19 @@ public class BigInt {
         if (carry > 0) digits.add(carry);
         return this;
     }
+    public BigInt decrement() {
+        if (isZero()) throw new ArithmeticException("Underflow");
+        int i = 0;
+        while (i < digits.size() && digits.get(i) == 0) {
+            digits.set(i, 9);
+            i++;
+        }
+        digits.set(i, digits.get(i) - 1);
+        if (digits.size() > 1 && digits.get(digits.size() - 1) == 0) {
+            digits.remove(digits.size() - 1);
+        }
+        return this;
+    }
 
     public boolean lessThan(BigInt other) {
         int mainLength = this.length(), length = other.length();
