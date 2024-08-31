@@ -29,7 +29,7 @@ public class BigInt {
         }
     }
 
-a
+
 
     public boolean lessThan(BigInt other) {
         int mainLength = this.length(), length = other.length();
