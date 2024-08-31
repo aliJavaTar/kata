@@ -13,6 +13,11 @@ public class BigInt {
         this.digits.add(0);
     }
 
+    public BigInt() {
+        this.digits = new ArrayList<>(); // Initialize the digits list as an empty list.
+        this.digits.add(0); // Initialize it to represent the number zero.
+    }
+
     public BigInt(long number) {
         this.digits = new ArrayList<>();
         do {
@@ -31,6 +36,26 @@ public class BigInt {
         }
     }
 
+    public BigInt add(BigInt other) {
+        BigInt result = new BigInt();
+        result.digits.clear();
+
+        int maxLength = Math.max(this.length(), other.length());
+        int carry = 0;
+
+        for (int i = 0; i < maxLength; i++) {
+            int sum = carry;
+            if (i < this.length()) sum += this.digits.get(i);
+            if (i < other.length()) sum += other.digits.get(i);
+            result.digits.add(sum % 10);
+            carry = sum / 10;
+        }
+
+        if (carry > 0) result.digits.add(carry);
+        return result;
+    }
+
+
     public BigInt increment() {
         int carry = CARRY_INCREMENT;
         for (int index = 0; index <= digits.size(); index++) {
@@ -42,6 +67,7 @@ public class BigInt {
         if (carry > 0) digits.add(carry);
         return this;
     }
+
     public BigInt decrement() {
         if (isZero()) throw new ArithmeticException("Underflow");
         int i = 0;
