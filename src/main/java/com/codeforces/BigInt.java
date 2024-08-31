@@ -14,8 +14,7 @@ public class BigInt {
     }
 
     private BigInt() {
-        this.digits = new ArrayList<>(); // Initialize the digits list as an empty list.
-        this.digits.add(0); // Initialize it to represent the number zero.
+        this.digits = new ArrayList<>();
     }
 
     public BigInt(long number) {
@@ -38,15 +37,14 @@ public class BigInt {
 
     public BigInt add(BigInt other) {
         BigInt result = new BigInt();
-        result.digits.clear();
 
         int maxLength = Math.max(this.length(), other.length());
         int carry = 0;
 
-        for (int i = 0; i < maxLength; i++) {
+        for (int index = 0; index < maxLength; index++) {
             int sum = carry;
-            if (i < this.length()) sum += this.digits.get(i);
-            if (i < other.length()) sum += other.digits.get(i);
+            if (index < this.length()) sum += this.digits.get(index);
+            if (index < other.length()) sum += other.digits.get(index);
             result.digits.add(sum % 10);
             carry = sum / 10;
         }
