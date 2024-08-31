@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BigInt {
+    public static final int NUMBER = 10;
+    public static final int CARRY_INCREMENT = 1;
     private final List<Integer> digits;
 
     public BigInt(List<Integer> digits) {
@@ -29,7 +31,17 @@ public class BigInt {
         }
     }
 
-
+    public BigInt increment() {
+        int carry = CARRY_INCREMENT;
+        for (int index = 0; index <= digits.size(); index++) {
+            int newValue = digits.get(index) + carry;
+            digits.set(index, newValue % NUMBER);
+            carry = newValue / NUMBER;
+            if (carry == 0) break;
+        }
+        if (carry > 0) digits.add(carry);
+        return this;
+    }
 
     public boolean lessThan(BigInt other) {
         int mainLength = this.length(), length = other.length();
