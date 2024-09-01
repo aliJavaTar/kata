@@ -20,9 +20,9 @@ class AddStringTest {
             "123, 0, 123",
             "-123, 0, -123"
     })
-    void testAddition(String firstNumber, String secundNumber, String expected) {
+    void testAddition(String firstNumber, String secondNumber, String expected) {
         AddString a = new AddString(firstNumber);
-        AddString b = new AddString(secundNumber);
-        assertEquals(new AddString(expected), a.add(b), String.format(FORMAT, firstNumber, secundNumber, expected));
+        AddString b = new AddString(secondNumber);
+        assertEquals(new AddString(expected), a.add(b), String.format(FORMAT, firstNumber, secondNumber, expected));
     }
 }
