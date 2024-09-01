@@ -155,6 +155,7 @@ public class BigInt {
     }
 
 
+
     private BigInt addAbsolute(BigInt other) {
         BigInt result = new BigInt();
         int maxLength = Math.max(this.digits.size(), other.digits.size());
@@ -208,6 +209,10 @@ public class BigInt {
         if (isZero()) {
             isNegative = false;
         }
+    }
+
+    private int length() {
+        return digits.size();
     }
 
     @Override
