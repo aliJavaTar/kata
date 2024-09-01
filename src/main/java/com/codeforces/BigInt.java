@@ -4,110 +4,236 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BigInt {
-    public static final int NUMBER = 10;
-    public static final int CARRY_INCREMENT = 1;
+    private static final int BASE = 10;
+    private static final int INITIAL_CAPACITY = 1;
+
     private final List<Integer> digits;
+    private boolean isNegative;
 
-    public BigInt(List<Integer> digits) {
-        this.digits = new ArrayList<>();
-        this.digits.add(0);
-    }
-
-    private BigInt() {
-        this.digits = new ArrayList<>(); // Initialize the digits list as an empty list.
-        this.digits.add(0); // Initialize it to represent the number zero.
-    }
-
+    // Constructor for positive and negative long values
     public BigInt(long number) {
-        this.digits = new ArrayList<>();
-        do {
-            this.digits.add((int) (number % 10));
-            number /= number;
-        } while (number > 0);
+        this.digits = new ArrayList<>(INITIAL_CAPACITY);
+        this.isNegative = number < 0;
+        number = Math.abs(number);
+
+        if (number == 0) {
+            digits.add(0);
+        } else {
+            while (number > 0) {
+                digits.add((int) (number % BASE));
+                number /= BASE;
+            }
+        }
+        normalize();
     }
 
     public BigInt(String number) {
+        if (number == null || number.isEmpty()) {
+            throw new IllegalArgumentException("Invalid number format");
+        }
+
         this.digits = new ArrayList<>();
-        for (int index = number.length() - 1; index >= 0; index--) {
-            if (!Character.isDigit(number.charAt(index))) {
+        if (number.charAt(0) == '-') {
+            this.isNegative = true;
+            number = number.substring(1);
+        }
+
+        for (int i = number.length() - 1; i >= 0; i--) {
+            if (!Character.isDigit(number.charAt(i))) {
                 throw new IllegalArgumentException("Invalid character in number");
             }
-            this.digits.add(number.charAt(index) - '0');
+            this.digits.add(number.charAt(i) - '0');
         }
+        normalize();
+    }
+
+    public BigInt(int number) {
+        this(String.valueOf(number));
+    }
+
+    // Private default constructor for internal use
+    private BigInt() {
+        this.digits = new ArrayList<>(INITIAL_CAPACITY);
     }
 
     public BigInt add(BigInt other) {
-        BigInt result = new BigInt();
-        result.digits.clear();
-
-        int maxLength = Math.max(this.length(), other.length());
-        int carry = 0;
-
-        for (int i = 0; i < maxLength; i++) {
-            int sum = carry;
-            if (i < this.length()) sum += this.digits.get(i);
-            if (i < other.length()) sum += other.digits.get(i);
-            result.digits.add(sum % 10);
-            carry = sum / 10;
+        if (this.isNegative == other.isNegative) {
+            BigInt result = new BigInt();
+            result.digits.addAll(addAbsolute(other).digits);
+            result.isNegative = this.isNegative;
+            result.normalize();
+            return result;
+        } else {
+            if (compareAbsolute(other) >= 0) {
+                BigInt result = new BigInt();
+                result.digits.addAll(subtractAbsolute(other).digits);
+                result.isNegative = this.isNegative;
+                result.normalize();
+                return result;
+            } else {
+                BigInt result = new BigInt();
+                result.digits.addAll(other.subtractAbsolute(this).digits);
+                result.isNegative = other.isNegative;
+                result.normalize();
+                return result;
+            }
         }
-
-        if (carry > 0) result.digits.add(carry);
-        return result;
     }
 
+    public BigInt subtract(BigInt other) {
+        if (this.isNegative != other.isNegative) {
+            BigInt result = new BigInt();
+            result.digits.addAll(addAbsolute(other).digits);
+            result.isNegative = this.isNegative;
+            result.normalize();
+            return result;
+        } else {
+            if (compareAbsolute(other) >= 0) {
+                BigInt result = new BigInt();
+                result.digits.addAll(subtractAbsolute(other).digits);
+                result.isNegative = this.isNegative;
+                result.normalize();
+                return result;
+            } else {
+                BigInt result = new BigInt();
+                result.digits.addAll(other.subtractAbsolute(this).digits);
+                result.isNegative = !this.isNegative;
+                result.normalize();
+                return result;
+            }
+        }
+    }
 
     public BigInt increment() {
-        int carry = CARRY_INCREMENT;
-        for (int index = 0; index <= digits.size(); index++) {
-            int newValue = digits.get(index) + carry;
-            digits.set(index, newValue % NUMBER);
-            carry = newValue / NUMBER;
-            if (carry == 0) break;
+        if (isNegative) {
+            if (isZero()) {
+                return new BigInt(1); // Edge case: Incrementing zero should result in one.
+            } else {
+                BigInt positive = new BigInt(this.toString().substring(1));
+                BigInt decremented = positive.decrement();
+                decremented.isNegative = true; // Maintain negative sign
+                if (decremented.isZero()) {
+                    return new BigInt(0); // If decrementing from zero, the result should be zero.
+                }
+                return decremented;
+            }
+        } else {
+            BigInt result = add(new BigInt(1));
+            if (result.isZero()) {
+                return new BigInt(0); // Correct zero representation
+            }
+            return result;
         }
-        if (carry > 0) digits.add(carry);
-        return this;
     }
 
     public BigInt decrement() {
-        if (isZero()) throw new ArithmeticException("Underflow");
-        int i = 0;
-        while (i < digits.size() && digits.get(i) == 0) {
-            digits.set(i, 9);
-            i++;
+        if (isNegative) {
+            BigInt positive = new BigInt(this.toString().substring(1));
+            BigInt incremented = positive.increment();
+            incremented.isNegative = true; // Maintain negative sign
+            return incremented;
+        } else {
+            BigInt result = subtract(new BigInt(1));
+            if (result.isZero()) {
+                return new BigInt(0); // Correct zero representation
+            }
+            return result;
         }
-        digits.set(i, digits.get(i) - 1);
-        if (digits.size() > 1 && digits.get(digits.size() - 1) == 0) {
-            digits.remove(digits.size() - 1);
-        }
-        return this;
     }
 
     public boolean lessThan(BigInt other) {
-        int mainLength = this.length(), length = other.length();
-        if (mainLength != length) {
-            return mainLength < length;
+        if (this.isNegative != other.isNegative) {
+            return this.isNegative;
         }
-        for (int index = mainLength - 1; index >= 0; index--) {
-            if (!this.digits.get(index).equals(other.digits.get(index))) {
-                return this.digits.get(index) < other.digits.get(index);
-            }
+        if (this.isNegative) {
+            return compareAbsolute(other) > 0;
+        } else {
+            return compareAbsolute(other) < 0;
         }
-        return false;
     }
 
-    public boolean equals(BigInt other) {
-        return this.digits.equals(other.digits);
-    }
-
-    public BigInt(BigInt another) {
-        this.digits = new ArrayList<>(another.digits);
-    }
-
-    public int length() {
-        return digits.size();
-    }
 
     public boolean isZero() {
         return digits.size() == 1 && digits.get(0) == 0;
     }
+
+    private BigInt addAbsolute(BigInt other) {
+        BigInt result = new BigInt();
+        int maxLength = Math.max(this.digits.size(), other.digits.size());
+        int carry = 0;
+
+        for (int i = 0; i < maxLength; i++) {
+            int sum = carry;
+            if (i < this.digits.size()) sum += this.digits.get(i);
+            if (i < other.digits.size()) sum += other.digits.get(i);
+            result.digits.add(sum % BASE);
+            carry = sum / BASE;
+        }
+        if (carry > 0) result.digits.add(carry);
+        result.normalize();
+        return result;
+    }
+
+    private BigInt subtractAbsolute(BigInt other) {
+        BigInt result = new BigInt();
+        int borrow = 0;
+        for (int i = 0; i < this.digits.size(); i++) {
+            int diff = this.digits.get(i) - (i < other.digits.size() ? other.digits.get(i) : 0) - borrow;
+            if (diff < 0) {
+                diff += BASE;
+                borrow = 1;
+            } else {
+                borrow = 0;
+            }
+            result.digits.add(diff);
+        }
+        result.normalize();
+        return result;
+    }
+
+    private int compareAbsolute(BigInt other) {
+        if (this.digits.size() != other.digits.size()) {
+            return Integer.compare(this.digits.size(), other.digits.size());
+        }
+        for (int i = this.digits.size() - 1; i >= 0; i--) {
+            if (!this.digits.get(i).equals(other.digits.get(i))) {
+                return Integer.compare(this.digits.get(i), other.digits.get(i));
+            }
+        }
+        return 0;
+    }
+
+    private void normalize() {
+        while (digits.size() > 1 && digits.get(digits.size() - 1) == 0) {
+            digits.remove(digits.size() - 1);
+        }
+        if (isZero()) {
+            isNegative = false;
+        }
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (isNegative) sb.append('-');
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            sb.append(digits.get(i));
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        BigInt other = (BigInt) obj;
+        return isNegative == other.isNegative && digits.equals(other.digits);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * (isNegative ? 1 : 0) + digits.hashCode();
+    }
+
 }
