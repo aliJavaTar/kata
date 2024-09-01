@@ -10,7 +10,6 @@ public class BigInt {
     private final List<Integer> digits;
     private boolean isNegative;
 
-    // Constructor for positive and negative long values
     public BigInt(long number) {
         this.digits = new ArrayList<>(INITIAL_CAPACITY);
         this.isNegative = number < 0;
@@ -51,7 +50,6 @@ public class BigInt {
         this(String.valueOf(number));
     }
 
-    // Private default constructor for internal use
     private BigInt() {
         this.digits = new ArrayList<>(INITIAL_CAPACITY);
     }
@@ -152,10 +150,10 @@ public class BigInt {
         }
     }
 
-
     public boolean isZero() {
         return digits.size() == 1 && digits.get(0) == 0;
     }
+
 
     private BigInt addAbsolute(BigInt other) {
         BigInt result = new BigInt();
@@ -211,7 +209,6 @@ public class BigInt {
             isNegative = false;
         }
     }
-
 
     @Override
     public String toString() {
