@@ -27,7 +27,7 @@ public class BigInt {
         this.digits = new ArrayList<>();
         for (int index = number.length() - 1; index >= 0; index--) {
             char c = number.charAt(index);
-            if (!Character.isDigit(c)) {
+            if (!Character.isDigit(number.charAt(index))) {
                 throw new IllegalArgumentException("Invalid character in number");
             }
             this.digits.add(c - '0');
@@ -262,36 +262,3 @@ public class BigInt {
         System.out.println(result); // Output should be 8 (2^3)
     }
 }
-
-//    class exp_sq {
-//        static long N = 1000000007L; // prime modulo value
-//        public static void main(String[] args)
-//        {
-//            long base = 5;
-//            long exp = 100000;
-//
-//            long modulo = exponentiation(base, exp);
-//            System.out.println(modulo);
-//        }
-//
-//        static long exponentiation(long base, long exp)
-//        {
-//            if (exp == 0)
-//                return 1;
-//
-//            if (exp == 1)
-//                return base % N;
-//
-//            long t = exponentiation(base, exp / 2);
-//            t = (t * t) % N;
-//
-//            // if exponent is even value
-//            if (exp % 2 == 0)
-//                return t;
-//
-//                // if exponent is odd value
-//            else
-//                return ((base % N) * t) % N;
-//        }
-//    }
-//}
