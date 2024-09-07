@@ -24,6 +24,7 @@ public class GCD {
         return a;
     }
 
+
     public static void main(String[] args) {
         System.out.println(gcdEuclidean(8, 12));
         System.out.println(gcdEuclidean(12, 8));
