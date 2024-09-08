@@ -1,4 +1,9 @@
 package com.array;
 
-public class SubArray {
+public record SubArray(int[] array) {
+
+    public int findMaximumSubarraySum() {
+        return 0;
+    }
+
 }
