@@ -7,15 +7,9 @@ class SubArrayShould {
     @Test
     void findMaximumSubarraySum() {
 
-//        int[] array = {2, 3, -1, 5};
-//        var subArray = new SubArray(array);
-//        int result = subArray.findMaximumSubarraySum();
-//        Assertions.assertThat(result).isEqualTo(7);
-
-
-        int[] array =  {2, 3, -1, 5};
-//        var subArray = new SubArray(array);
-        int result = SubArray.calculateMax(array);
+        int[] array = {2, 3, -1, 5};
+        var subArray = new SubArray(array);
+        int result = subArray.calculateMax(array);
         Assertions.assertThat(result).isEqualTo(9);
 
     }

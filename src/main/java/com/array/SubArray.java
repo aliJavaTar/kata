@@ -15,7 +15,7 @@ public record SubArray(int[] array) {
         return maxSum;
     }
 
-    public static int calculateMax(int[] array) {
+    public  int calculateMax(int[] array) {
         int maxSum = array[0];
         int curSum = 0;
 
@@ -26,4 +26,5 @@ public record SubArray(int[] array) {
         }
         return maxSum;
     }
+
 }
