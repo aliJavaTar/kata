@@ -16,7 +16,7 @@ class SubArrayShould {
         int[] array =  {2, 3, -1, 5};
 //        var subArray = new SubArray(array);
         int result = SubArray.calculateMax(array);
-        Assertions.assertThat(result).isEqualTo(7);
+        Assertions.assertThat(result).isEqualTo(9);
 
     }
 }
