@@ -3,17 +3,30 @@ package com.array;
 public record SubArray(int[] array) {
 
     public int findMaximumSubarraySum() {
-        if (array.length == 0) {
-            return 0;
+        int maxSum = array[0];
+
+        for (int index = 0; index < array.length; index++) {
+            int currentSum = 0;
+            for (int j = index + 1; j < array.length; j++) {
+                currentSum += array[j];
+                maxSum = Math.max(maxSum, currentSum);
+            }
         }
-        int maximum = array[0];
-        for (int i = 0; i < array.length - 1; i++) {
-            for (int j = i; j < array.length - 1; j++) {
-                if (array[i] + array[j] > maximum) {
-                    maximum = array[i] + array[j];
+        return maxSum;
+    }
+
+    public static int calculateMax(int[] array) {
+        int maximumSum = array[0];
+
+        for (int index = 0; index < array.length; index++) {
+            int currentSum = 0;
+            for (int j = index + 1; j < array.length; j++) {
+                currentSum +=  array[j];
+                if (currentSum > maximumSum) {
+                    maximumSum = currentSum;
                 }
             }
         }
-        return maximum;
+        return maximumSum;
     }
 }

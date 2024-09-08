@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.codeforces.BigIntTest
--------------------------------------------------------------------------------
-Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s -- in com.codeforces.BigIntTest
