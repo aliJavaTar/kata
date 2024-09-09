@@ -7,10 +7,10 @@ class SubArrayShould {
     @Test
     void findMaximumSubarraySum() {
 
-        int[] array = {2, 3, -1, 5};
+        int[] array = {-7, 3, -1, 2, -4, 3};
         var subArray = new SubArray(array);
-        int result = subArray.calculateMax(array);
-        Assertions.assertThat(result).isEqualTo(9);
+        int result = subArray.subArr(array);
+        Assertions.assertThat(result).isEqualTo(4);
 
     }
 }
