@@ -1,10 +1,8 @@
 package com.codeforces;
 
-import java.util.Map;
 import java.util.Stack;
 
-import static java.lang.Integer.*;
-import static java.lang.String.*;
+import static java.lang.Integer.parseInt;
 
 public class StringExpansion {
     private final String letters;
@@ -14,35 +12,27 @@ public class StringExpansion {
     }
 
     public String expandedLetter() {
-        if (letters.length() == 1)
-            return letters;
         StringBuilder result = new StringBuilder();
-        int multiplier = 0;
+        int multiplier;
         Stack<Character> stack = new Stack<>();
-        for (int index = letters.length() - 1; index >= 0; index--) {
+        for (int index = 0; index < letters.length() - 1; index++) {
             if (letters.charAt(index) != ')' && letters.charAt(index) != '(') {
                 stack.push(letters.charAt(index));
             }
         }
-
-        Character pop = stack.pop();
-        if (!isCharacter(pop))
-            multiplier = parseInt(pop.toString());
+        String temp = "";
         while (stack.iterator().hasNext()) {
             Character character = stack.pop();
-            if (isCharacter(character)) {
-                result.append(character);
-            }
+            if (Character.isDigit(character)) {
+                multiplier = parseInt(character.toString());
+                result.append(temp.repeat(Math.max(0, multiplier - 1)));
+            } else
+                temp = result.append(character).toString();
         }
 
-        for (int index = 0; index < multiplier-1; index++) {
-            result.append(result);
-        }
-        return result.toString();
+        return result.reverse().toString();
     }
 
-    private static boolean isCharacter(Character character) {
-        return character >= 'a' && character <= 'z';
-    }
 
 }
+//"k(a3(b(a2(c))))"  --> ka3ba2c   k  a  3 bababa cc
