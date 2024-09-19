@@ -34,6 +34,7 @@ public class StringExpansion {
                 result.append(character);
             }
         }
+
         for (int index = 0; index < multiplier-1; index++) {
             result.append(result);
         }
