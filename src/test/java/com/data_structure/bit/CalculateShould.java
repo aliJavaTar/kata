@@ -9,7 +9,14 @@ class CalculateShould {
     @Test
     void calculateBinary() {
         Calculate calculate = new Calculate();
-        int result = calculate.calculateBinary(3, 5);
+        int result = calculate.calculateBinaryOrOperate(3, 5);
         assertEquals(7, result);
+
+        result = calculate.calculateBinaryAndOperate(3, 5);
+        assertEquals(1, result);
+
+        result = calculate.calculateBinaryAndOperate(1, 7);
+        assertEquals(1, result);
+
     }
 }
