@@ -12,4 +12,8 @@ public class Calculate {
     public int calculateBinaryShiftLeftOperate(int firstNumber, int secondNumber) {
         return firstNumber << secondNumber;
     }
+
+    public int calculateBinaryShiftRightOperate(int firstNumber, int secondNumber) {
+        return firstNumber >> secondNumber;
+    }
 }

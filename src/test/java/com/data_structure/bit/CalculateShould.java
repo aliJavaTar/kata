@@ -18,5 +18,17 @@ class CalculateShould {
         result = calculate.calculateBinaryAndOperate(1, 7);
         assertEquals(1, result);
 
+        result = calculate.calculateBinaryShiftLeftOperate(1, 1);
+        assertEquals(2, result);
+
+        result = calculate.calculateBinaryShiftLeftOperate(3, 2);
+        assertEquals(12, result);
+
+        result = calculate.calculateBinaryShiftRightOperate(3, 2);
+        assertEquals(0, result);
+
+        result = calculate.calculateBinaryShiftRightOperate(3, 1);
+        assertEquals(1, result);
+
     }
 }
