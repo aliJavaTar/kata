@@ -12,9 +12,7 @@ public record Count(int number) {
                 count++;
                 temp = temp - (int) Math.pow(2, index);
             }
-
             index--;
-
         }
         return count;
     }
@@ -22,9 +20,7 @@ public record Count(int number) {
     public int calculate_performance() {
         int count = 0;
         int temp = number;
-
         int index = Integer.highestOneBit(number);
-
         while (temp > 0 && index > 0) {
             if (temp >= index) {
                 count++;
@@ -32,7 +28,6 @@ public record Count(int number) {
             }
             index >>= 1;
         }
-
         return count;
     }
 
