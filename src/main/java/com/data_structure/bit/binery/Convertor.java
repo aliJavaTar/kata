@@ -1,4 +1,4 @@
-package com.data_structure.bit;
+package com.data_structure.bit.binery;
 
 public class Convertor {
     private int number;
@@ -9,6 +9,7 @@ public class Convertor {
 
     String convertNumberToBinary() {
         var countOfNumber = getCountOfNumber();
+        System.out.println(countOfNumber);
         var stringBuilder = new StringBuilder();
         int pow = 0;
         while (countOfNumber != -1) {
