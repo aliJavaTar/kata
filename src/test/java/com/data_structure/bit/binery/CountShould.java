@@ -20,7 +20,7 @@ class CountShould {
             "12, 2",
     })
     void calculateCountOfSubtractionsOfPowersOfTwoUntilNegative(int input, int expected) {
-        int calculate = new Count(input).calculate();
+        int calculate = new Count(input).calculate_performance();
         System.out.println(calculate);
         Assertions.assertThat(calculate).isEqualTo(expected);
     }
