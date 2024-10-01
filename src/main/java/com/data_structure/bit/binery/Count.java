@@ -23,7 +23,6 @@ public record Count(int number) {
         int count = 0;
         int temp = number;
 
-        // Start with the highest possible power of 2 that fits within the number
         int index = Integer.highestOneBit(number);
 
         while (temp > 0 && index > 0) {
@@ -31,7 +30,7 @@ public record Count(int number) {
                 count++;
                 temp -= index;
             }
-            index >>= 1; // Move to the next lower power of 2 (bit shift)
+            index >>= 1;
         }
 
         return count;
