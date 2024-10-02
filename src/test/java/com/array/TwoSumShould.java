@@ -19,6 +19,7 @@ class TwoSumShould {
     }
 
     static Stream<Arguments> provideData() {
+
         return Stream.of(
                 Arguments.of(1, new int[]{0, 1}, new int[]{0, 1}),
                 Arguments.of(5, new int[]{2, 5, 3}, new int[]{0, 2}),
