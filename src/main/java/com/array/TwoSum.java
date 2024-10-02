@@ -1,7 +1,6 @@
 package com.array;
 
 import java.util.HashMap;
-import java.util.stream.IntStream;
 
 public record TwoSum(int[] arrayOfNumbers, int target) {
 
