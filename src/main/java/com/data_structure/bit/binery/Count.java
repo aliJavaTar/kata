@@ -21,8 +21,10 @@ public record Count(int number) {
         int count = 0;
         int temp = number;
         int index = Integer.highestOneBit(number);
-        while (temp > 0 && index > 0) {
-            if (temp >= index) {
+        while (temp > 0 && index > 0)
+        {
+            if (temp >= index)
+            {
                 count++;
                 temp -= index;
             }
