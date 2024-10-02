@@ -19,14 +19,11 @@ public record TwoSum(int[] arrayOfNumbers, int target) {
 
     public int[] findIndex_performance() {
         HashMap<Integer, Integer> complementMap = new HashMap<>();
-
         for (int index = 0; index < arrayOfNumbers.length; index++) {
             int complement = target - arrayOfNumbers[index];
-
             if (complementMap.containsKey(complement)) {
                 return new int[]{complementMap.get(complement), index};
             }
-
             complementMap.put(arrayOfNumbers[index], index);
         }
 

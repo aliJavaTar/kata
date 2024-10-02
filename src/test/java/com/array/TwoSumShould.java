@@ -14,7 +14,7 @@ class TwoSumShould {
             (int target, int[] numbers, int[] exceptedIndex) {
 
         var twoSum = new TwoSum(numbers, target);
-        int[] result = twoSum.findIndex();
+        int[] result = twoSum.findIndex_performance();
         Assertions.assertThat(result).isEqualTo(exceptedIndex);
     }
 
