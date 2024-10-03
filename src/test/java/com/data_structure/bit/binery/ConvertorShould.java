@@ -1,10 +1,9 @@
 package com.data_structure.bit.binery;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ConvertorShould {
     @ParameterizedTest
@@ -17,8 +16,7 @@ class ConvertorShould {
             "10, 1010"
     })
     void convertNumberToBinary(int input, String expected) {
-        Count count = new Count(input);
-        String result = count.countOfNumber();
+        String result = new Convertor(input).convertNumberToBinary();
         assertEquals(expected, result);
     }
 }
