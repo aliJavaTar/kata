@@ -16,7 +16,7 @@ class ConvertorShould {
             "10, 1010"
     })
     void convertNumberToBinary(int input, String expected) {
-        String result = new Convertor(input).convertNumberToBinary();
+        String result = new Convertor(input).convertNumberToBinary_();
         assertEquals(expected, result);
     }
 }
