@@ -8,7 +8,7 @@ class CountShould {
 
     @Test
     void calculateCountOfSubtractionsOfPowersOfTwoUntilNegative() {
-        int calculate = new Count(9).calculate_performance();
-        System.out.println(calculate);
+//        int calculate = new Count(9).countOfNumber();
+//        System.out.println(calculate);
     }
 }

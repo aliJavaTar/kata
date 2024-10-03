@@ -2,10 +2,10 @@ package com.array;
 
 import java.util.HashMap;
 
+
 public record TwoSum(int[] arrayOfNumbers, int target) {
 
     public int[] findIndex() {
-
         for (int index = 0; index < arrayOfNumbers.length; index++) {
             for (int j = index + 1; j < arrayOfNumbers.length; j++) {
                 if (arrayOfNumbers[index] + arrayOfNumbers[j] == target)
@@ -16,7 +16,6 @@ public record TwoSum(int[] arrayOfNumbers, int target) {
     }
 
     public int[] findIndex_performance() {
-
         HashMap<Integer, Integer> complementMap = new HashMap<>();
         for (int index = 0; index < arrayOfNumbers.length; index++) {
             int complement = target - arrayOfNumbers[index];
@@ -28,5 +27,4 @@ public record TwoSum(int[] arrayOfNumbers, int target) {
 
         throw new IllegalStateException("not found");
     }
-
 }
