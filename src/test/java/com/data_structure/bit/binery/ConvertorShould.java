@@ -1,35 +1,24 @@
 package com.data_structure.bit.binery;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConvertorShould {
-    @Test
-    void convertNumberToBinary() {
-        var convertor = new Convertor(2);
-        String result = convertor.convertNumberToBinary();
-        assertEquals("10", result);
-
-        convertor = new Convertor(3);
-        result = convertor.convertNumberToBinary();
-        assertEquals("11", result);
-
-        convertor = new Convertor(5);
-        result = convertor.convertNumberToBinary();
-        assertEquals("101", result);
-
-        convertor = new Convertor(7);
-        result = convertor.convertNumberToBinary();
-        assertEquals("111", result);
-
-        convertor = new Convertor(9);
-        result = convertor.convertNumberToBinary();
-        assertEquals("1001", result);
-
-
-        convertor = new Convertor(10);
-        result = convertor.convertNumberToBinary();
-        assertEquals("1010", result);
+    @ParameterizedTest
+    @CsvSource({
+            "2, 10",
+            "3, 11",
+            "5, 101",
+            "7, 111",
+            "9, 1001",
+            "10, 1010"
+    })
+    void convertNumberToBinary(int input, String expected) {
+        Count count = new Count(input);
+        String result = count.countOfNumber();
+        assertEquals(expected, result);
     }
 }
