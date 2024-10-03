@@ -2,14 +2,16 @@ package com.data_structure.bit.binery;
 
 public record Convertor(int number) {
 
+    String convertNumberToBinary_() {
+        return Integer.toBinaryString(number);
+    }
 
     String convertNumberToBinary() {
 
         StringBuilder builder = new StringBuilder();
         int temp = number;
-        int index = Integer.highestOneBit(number);  // Start with the highest bit set
+        int index = Integer.highestOneBit(number);
 
-        // Loop through bits and build the binary representation
         while (index > 0) {
             if (temp >= index) {
                 builder.append('1');
@@ -17,7 +19,7 @@ public record Convertor(int number) {
             } else {
                 builder.append('0');
             }
-            index >>= 1; // Shift to the next lower bit
+            index >>= 1;
         }
 
         return builder.toString();
