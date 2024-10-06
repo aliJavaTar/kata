@@ -8,7 +8,7 @@ class FindTest {
     @Test
     public void test() {
         var find = new Find(10);
-        int msb = find.findMSB_performance();
+        int msb = find.findMSB();
         Assertions.assertThat(msb).isEqualTo(8);
     }
 }
