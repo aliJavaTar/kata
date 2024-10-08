@@ -29,9 +29,20 @@ public record CountSetBits(BigInteger number) {
         return count;
     }
 
+    public int calculate____() {
+        int count = 0;
+        int current = number.intValue();
+
+        while (current > 0) {
+            current &= (current - 1);
+            count++;
+        }
+        return count;
+    }
+
     public int calculate__() {
 
-         int[] BitsSetTable256 = new int[256];
+        int[] BitsSetTable256 = new int[256];
 
         int count = 0;
         int current = number.intValue();

@@ -27,7 +27,7 @@ class CountSetBitsShould {
     void calculate_set_bits_in_big_integer(String numberStr, int expectedCount) {
         BigInteger number = new BigInteger(numberStr);
         CountSetBits countSetBits = new CountSetBits(number);
-        int count = countSetBits.calculate();
+        int count = countSetBits.calculate____();
         Assertions.assertThat(expectedCount).isEqualTo(count);
     }
 }
