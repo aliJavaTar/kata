@@ -1,18 +1,9 @@
 package com.data_structure.bit;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
-public class OneOddOccurring {
-
-
-    private final int[] numbers;
-
-    public OneOddOccurring(int[] numbers) {
-        this.numbers = numbers;
-    }
-
+public record OneOddOccurring(int[] numbers) {
 
     public int findNumber() {
 
@@ -30,11 +21,5 @@ public class OneOddOccurring {
         return 0;
     }
 
-//    public int findNumber___() {
-//        int result = 0;
-//        for (int number : numbers) {
-//            result ^= number;
-//        }
-//        return result;
-//    }
+
 }
