@@ -3,8 +3,6 @@ package com.data_structure.bit;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class OneOddOccurringTest {
 
     @Test
@@ -13,5 +11,10 @@ class OneOddOccurringTest {
         var oneOddOccurring = new OneOddOccurring(numbers);
         int result = oneOddOccurring.findNumber();
         Assertions.assertThat(result).isEqualTo(3);
+
+        numbers = new int[]{5, 7, 2, 7, 5, 2, 5, 5};
+        oneOddOccurring = new OneOddOccurring(numbers);
+        result = oneOddOccurring.findNumber();
+        Assertions.assertThat(result).isEqualTo(5);
     }
 }

@@ -1,6 +1,7 @@
 package com.data_structure.bit;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class OneOddOccurring {
@@ -14,6 +15,7 @@ public class OneOddOccurring {
 
 
     public int findNumber() {
+
         Map<Integer, Integer> map = new HashMap<>();
         int count = 0;
         for (int number : numbers) {
@@ -25,7 +27,14 @@ public class OneOddOccurring {
             }
             map.put(number, count);
         }
-        System.out.println(map);
         return 0;
     }
+
+//    public int findNumber___() {
+//        int result = 0;
+//        for (int number : numbers) {
+//            result ^= number;
+//        }
+//        return result;
+//    }
 }
