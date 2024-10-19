@@ -1,8 +1,7 @@
-package com.data_structure.bit.binery;
+package com.data_structure.bit.binery.leetcode;
 
-public record Separate(int number) {
-
-    public boolean isSeparate() {
+public record Solution(int number) {
+    public boolean calculate(int number) {
         String binaryCode = Integer.toBinaryString(number);
         char[] charArray = binaryCode.toCharArray();
         int length = binaryCode.length();
