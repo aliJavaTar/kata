@@ -9,12 +9,11 @@ class SeparateShould {
 
 
     @ParameterizedTest
-    @ValueSource(ints = {2, 3})
+    @ValueSource(ints = {2})
     void takes_number_and_Give_one_when_binary_number_has_zero_and_one(int number) {
-        final int EXPECTED_NUMBER = 1;
         var separate = new Separate(number);
-        int result = separate.isSeparate();
-        assertThat(result).isEqualTo(EXPECTED_NUMBER);
+        boolean result = separate.isSeparate();
+        assertThat(result).isTrue();
 
     }
 }
