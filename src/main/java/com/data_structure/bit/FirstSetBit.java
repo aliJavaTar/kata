@@ -14,4 +14,21 @@ public record FirstSetBit(int number) {
         return (int) ((int) Math.log(isolatedBit) / Math.log(BASE_LOG) + START_INDEX_FROM_ONE);
     }
 
+    static int slower_getFirstSetBit(int n) {
+
+        if (n == 0) {
+            return 0;
+        }
+
+        int position = 1;
+
+
+        while ((n & 1) == 0) {
+            n = n >> 1;
+            position++;
+        }
+
+        return position;
+    }
+
 }
