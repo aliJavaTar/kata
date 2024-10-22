@@ -1,11 +1,6 @@
 package com.data_structure.bit.binery;
 
-public class PowerOfTwo {
-    private final int number;
-
-    public PowerOfTwo(int number) {
-        this.number = number;
-    }
+public record PowerOfTwo(int number) {
 
     public boolean isPowerOfTwo() {
         double logResult = Math.log(number) / Math.log(2);
