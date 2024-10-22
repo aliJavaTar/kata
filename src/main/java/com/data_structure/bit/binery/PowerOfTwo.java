@@ -8,6 +8,8 @@ public class PowerOfTwo {
     }
 
     public boolean isPowerOfTwo() {
-        return false;
+        double logResult = Math.log(number) / Math.log(2);
+        int roundedLogResult = (int) Math.round(logResult);
+        return number == (int) Math.pow(2, roundedLogResult);
     }
 }
