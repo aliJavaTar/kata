@@ -7,4 +7,10 @@ public record PowerOfTwo(long number) {
         int roundedLogResult = (int) Math.round(logResult);
         return number == (int) Math.pow(2, roundedLogResult);
     }
+
+    public boolean isPowerOfTwo_bit() {
+        if (number <= 0)
+            return false;
+        return (number & (number - 1)) == 0;
+    }
 }

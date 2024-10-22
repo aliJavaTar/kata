@@ -11,7 +11,7 @@ class PowerOfTwoShould {
     @ValueSource(longs = {1, 2, 4, 8, 16, 32, 1024, 1073741824,1099511627776L})
     void check_number_is_power_of_two(long number) {
         var powerOfTwo = new PowerOfTwo(number);
-        boolean result = powerOfTwo.isPowerOfTwo();
+        boolean result = powerOfTwo.isPowerOfTwo_bit();
         assertThat(result).isTrue();
     }
 }
