@@ -1,4 +1,4 @@
 package com.data_structure.bit.binery;
 
-public class SwapBits {
+public record SwapBits(int number) {
 }
