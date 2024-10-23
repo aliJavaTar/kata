@@ -3,8 +3,11 @@ package com.data_structure.bit.binery;
 public record RightmostDifferentBit(int firstNumber, int secondNumber) {
 
     public int find() {
-        if ((firstNumber & secondNumber) == 0)
-            return -1;
-        return 0;
+        String binaryString = Integer.toBinaryString(firstNumber ^ secondNumber);
+        int index = new StringBuilder(binaryString).reverse().toString().indexOf("1");
+        if (index == -1)
+            return index;
+        return index + 1;
+
     }
 }
