@@ -9,5 +9,6 @@ class SwapBitsShould {
     @Test
     void show_number_after_swap_even_bit_to_odd() {
         var swapBits = new SwapBits(32);
+        int result = swapBits.getNumber();
     }
 }
