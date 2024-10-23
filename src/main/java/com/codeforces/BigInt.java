@@ -28,7 +28,7 @@ public class BigInt {
 
     public BigInt(String number) {
         if (number == null || number.isEmpty()) {
-            throw new IllegalArgumentException("Invalid number format");
+            throw new IllegalArgumentException("Invalid firstNumber format");
         }
 
         this.digits = new ArrayList<>();
@@ -39,7 +39,7 @@ public class BigInt {
 
         for (int i = number.length() - 1; i >= 0; i--) {
             if (!Character.isDigit(number.charAt(i))) {
-                throw new IllegalArgumentException("Invalid character in number");
+                throw new IllegalArgumentException("Invalid character in firstNumber");
             }
             this.digits.add(number.charAt(i) - '0');
         }

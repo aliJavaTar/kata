@@ -3,8 +3,6 @@ package com.math;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class FactorialDigitTest {
     @ParameterizedTest
     @CsvSource({
@@ -18,7 +16,7 @@ class FactorialDigitTest {
     void calculateFactorialOfNumbers(int number, int expectedResult) {
 
 //        var factorialDigit = new FactorialDigit();
-////        int result = factorialDigit.calculate(number);
+////        int result = factorialDigit.calculate(firstNumber);
 //
 //        assertEquals(expectedResult, result, "Calculated factorial does not match expected result");
     }

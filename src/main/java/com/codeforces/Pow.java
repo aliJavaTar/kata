@@ -27,10 +27,10 @@ public class Pow {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter the first number: ");
+        System.out.print("Enter the first firstNumber: ");
         int firstNumber = scanner.nextInt();
 
-        System.out.print("Enter the second number: ");
+        System.out.print("Enter the second firstNumber: ");
         int secondNumber = scanner.nextInt();
 
         Pow pow = new Pow(firstNumber, secondNumber);
