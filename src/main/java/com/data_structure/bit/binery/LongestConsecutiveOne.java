@@ -12,16 +12,12 @@ public class LongestConsecutiveOne {
 
     public int calculateMustSequenceOne() {
         int count = 0;
-        int maxCount = 0;
-        while (number > 0) {
-            if ((number & 1) == 1) {
-                count++;
-                maxCount = Math.max(count, maxCount);
-            }
-            number >>= 1;
-            count = 0;
+        while (number!=0) {
+            number = (number & (number << 1));
+            count++;
         }
-        return maxCount;
+        //returning the answer.
+        return count;
     }
 
 
