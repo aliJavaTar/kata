@@ -1,9 +1,9 @@
 package com.data_structure.bit.binery;
 
-import java.io.InputStream;
-import java.util.stream.IntStream;
+import java.util.Arrays;
 
 public class LongestConsecutiveOne {
+    public static final String SPLIT_BY_ZERO = "0";
     private int number;
 
     public LongestConsecutiveOne(int number) {
@@ -24,18 +24,9 @@ public class LongestConsecutiveOne {
         return maxCount;
     }
 
-    public int calculateMustSequenceOne_() {
-        int count = 0;
-        String binaryString = Integer.toBinaryString(number);
-        int max = 0;
-        for (int index = 0; index < binaryString.length(); index++) {
-            if (binaryString.charAt(index) == '1')
-                count++;
-            if (binaryString.charAt(index) == '0')
-                count = 0;
 
-            max = Math.max(count, max);
-        }
-        return max;
+    public int calculateMustSequenceOne_() {
+        String[] array = Integer.toBinaryString(number).split(SPLIT_BY_ZERO);
+        return Arrays.stream(array).mapToInt(String::length).max().orElse(0);
     }
 }
