@@ -16,7 +16,6 @@ public class LongestConsecutiveOne {
             number = (number & (number << 1));
             count++;
         }
-        //returning the answer.
         return count;
     }
 
