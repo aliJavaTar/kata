@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 class PalindromeCheckRecursionTest {
 
     @ParameterizedTest
-    @ValueSource(strings = {"a"})
+    @ValueSource(strings = {"a", "bb" , "ccc" ,"aia"})
     void isPalindrome(String input) {
         var palindromeCheckRecursion = new PalindromeCheckRecursion();
         boolean result = palindromeCheckRecursion.isValid(input);
