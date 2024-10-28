@@ -20,7 +20,8 @@ class MaximumAndValueShould {
     private static Stream<Arguments> palindromeCombos() {
         return Stream.of(
                 Arguments.of(new int[]{4, 8, 12, 16}, 8),
-                Arguments.of(new int[]{4, 8, 16, 2}, 0)
+                Arguments.of(new int[]{4, 8, 16, 2}, 0),
+                Arguments.of(new int[]{4, 8, 12, 16, 12, 56565}, 16)
         );
     }
 

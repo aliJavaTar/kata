@@ -1,13 +1,19 @@
 package com.data_structure.bit.binery;
 
+import java.util.Arrays;
+
 public record MaximumAndValue(int[] array) {
     public int find() {
-        int max = 0;
-        for (int index = 0; index < array.length - 1; index++) {
-            if (index == array.length - 1)
-                break;
-            max = Math.max(max, index & index + 1);
+        if (array.length < 2)
+            return 0;
+        Arrays.sort(array);
+        int maxAndValue = 0;
+
+        for (int i = array.length - 1; i >= 1; i--) {
+            int andValue = array[i] & array[i - 1];
+            maxAndValue = Math.max(maxAndValue, andValue);
         }
-        return max;
+
+        return maxAndValue;
     }
 }
