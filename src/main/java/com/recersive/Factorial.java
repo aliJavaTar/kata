@@ -17,7 +17,7 @@ public record Factorial(int number) {
         return number * calculate_non_tail_recursive(number - 1);
     }
 
-    public int calculate_tail_recursive(int number, int saver) {
+    public int calculate_tail_recursive(int number, final int saver) {
         if (number == 0)
             return saver;
         return number * calculate_tail_recursive(number - 1, 1);
