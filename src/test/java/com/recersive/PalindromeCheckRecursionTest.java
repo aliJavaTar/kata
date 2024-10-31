@@ -10,7 +10,7 @@ class PalindromeCheckRecursionTest {
     @ValueSource(strings = {"a", "bb" , "ccc" ,"aia"})
     void isPalindrome(String input) {
         var palindromeCheckRecursion = new PalindromeCheckRecursion();
-        boolean result = palindromeCheckRecursion.isPalindrome(input);
+        boolean result = palindromeCheckRecursion.isValid(input);
         Assertions.assertThat(result).isTrue();
     }
 }

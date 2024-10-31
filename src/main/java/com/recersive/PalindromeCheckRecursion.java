@@ -4,17 +4,18 @@ public class PalindromeCheckRecursion {
 
 
     public boolean isValid(String input) {
+        int left = 0;
+        int right = input.length() - 1;
 
-        char[] charArray = input.toCharArray();
-        int j = charArray.length - 1;
-        for (int index = 0; index < charArray.length; index++) {
-            if (j == index)
-                break;
-            if (charArray[index] != charArray[j])
+        while (left < right) {
+            if (input.charAt(left) != input.charAt(right)) {
                 return false;
-            j--;
+            }
+            left++;
+            right--;
         }
         return true;
+
     }
 
     public boolean isPalindrome(String input) {
