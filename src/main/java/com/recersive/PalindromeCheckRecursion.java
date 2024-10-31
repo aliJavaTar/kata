@@ -27,14 +27,13 @@ public class PalindromeCheckRecursion {
 
     private boolean isValidRecursive(String input, int startingIndex, int endIndex) {
 
-        if (startingIndex == endIndex)
+        if (startingIndex >= endIndex)
             return true;
-        if ((input.charAt(startingIndex)) != (input.charAt(endIndex)))
+
+        if (input.charAt(startingIndex) != input.charAt(endIndex))
             return false;
 
-        if (startingIndex < (endIndex + 1))
-            return isValidRecursive(input, startingIndex + 1, endIndex - 1);
-        return true;
+        return isValidRecursive(input, startingIndex + 1, endIndex - 1);
 
     }
 
