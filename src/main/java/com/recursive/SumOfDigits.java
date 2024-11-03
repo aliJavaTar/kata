@@ -1,4 +1,4 @@
-package com.recersive;
+package com.recursive;
 
 public class SumOfDigits {
     public int calculateSumOfDigits(int input) {

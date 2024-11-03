@@ -1,8 +1,6 @@
-package com.recersive;
+package com.recursive;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class PrintNumberTest {
 

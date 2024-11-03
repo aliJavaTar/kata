@@ -1,4 +1,4 @@
-package com.recersive;
+package com.recursive;
 
 public class TextRecursive {
     public String reverse(String text) {

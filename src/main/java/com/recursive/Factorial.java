@@ -1,4 +1,4 @@
-package com.recersive;
+package com.recursive;
 
 public record Factorial(int number) {
 

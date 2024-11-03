@@ -1,4 +1,4 @@
-package com.recersive;
+package com.recursive;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
