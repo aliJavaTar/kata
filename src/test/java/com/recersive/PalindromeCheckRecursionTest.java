@@ -9,8 +9,8 @@ class PalindromeCheckRecursionTest {
     @ParameterizedTest
     @ValueSource(strings = {"a", "bb" , "ccc" ,"aia"})
     void isPalindrome(String input) {
-        var palindromeCheckRecursion = new PalindromeCheckRecursion();
-        boolean result = palindromeCheckRecursion.isValid(input);
+        var palindromeCheckRecursion = new PalindromeCheckRecursion(input);
+        boolean result = palindromeCheckRecursion.isPalindrome();
         Assertions.assertThat(result).isTrue();
     }
 }

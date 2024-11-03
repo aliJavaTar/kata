@@ -1,11 +1,15 @@
 package com.recersive;
 
-public class PalindromeCheckRecursion {
+public record PalindromeCheckRecursion(String input) {
 
 
-    public boolean isValid(String input) {
-        int left = 0;
-        int right = input.length() - 1;
+    private static final int STARTING_INDEX = 0;
+    private static final int OFFSET = 1;
+
+
+    public boolean isValid() {
+        int left = STARTING_INDEX;
+        int right = endingIndex();
 
         while (left < right) {
             if (input.charAt(left) != input.charAt(right)) {
@@ -18,15 +22,14 @@ public class PalindromeCheckRecursion {
 
     }
 
-    public boolean isPalindrome(String input) {
+    public boolean isPalindrome() {
         if (input.isEmpty())
             return true;
 
-
-        return isValidRecursive(input, 0, input.length() - 1);
+        return isValidRecursive(STARTING_INDEX, endingIndex());
     }
 
-    private boolean isValidRecursive(String input, int startingIndex, int endIndex) {
+    private boolean isValidRecursive(final int startingIndex, final int endIndex) {
 
         if (startingIndex >= endIndex)
             return true;
@@ -34,8 +37,12 @@ public class PalindromeCheckRecursion {
         if (input.charAt(startingIndex) != input.charAt(endIndex))
             return false;
 
-        return isValidRecursive(input, startingIndex + 1, endIndex - 1);
+        return isValidRecursive(startingIndex + OFFSET, endIndex - OFFSET);
+    }
 
+
+    private int endingIndex() {
+        return input.length() - 1;
     }
 
 }
