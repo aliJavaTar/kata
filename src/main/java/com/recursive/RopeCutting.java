@@ -2,13 +2,20 @@ package com.recursive;
 
 public class RopeCutting {
 
+    public int cutRodRecursive(int[] prices) {
+        int max = 0;
+        int meter = prices.length;
 
-
-    public int[] cutRodRecursive(int[] prices, int length) {
-        return null;
+        for (int index = 0; index < meter; index++) {
+            for (int j = 0; j < meter; j++) {
+                Math.max(prices[index] + prices[j], max);
+            }
+        }
+        return max;
     }
 
 }
+
 //    public static int cutRodRecursive(int[] prices, int length) {
 //        if (length <= 0)
 //            return 0;
