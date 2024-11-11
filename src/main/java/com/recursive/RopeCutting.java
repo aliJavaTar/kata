@@ -3,15 +3,21 @@ package com.recursive;
 public class RopeCutting {
 
     public int cutRodRecursive(int[] prices) {
-        int max = 0;
-        int meter = prices.length;
 
-        for (int index = 0; index < meter; index++) {
-            for (int j = 0; j < meter; j++) {
-                Math.max(prices[index] + prices[j], max);
-            }
+       return cutRod(prices, prices.length);
+    }
+
+    private int cutRod(int[] price, int length) {
+        if (length == 0) return 0;
+
+        int maxValue = Integer.MIN_VALUE;
+
+        for (int i = 0; i < length; i++) {
+            int currentVal = price[i] + cutRod(price, length - i - 1);
+            maxValue = Math.max(maxValue, currentVal);
         }
-        return max;
+
+        return maxValue;
     }
 
 }
