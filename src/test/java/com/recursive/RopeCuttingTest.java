@@ -11,12 +11,12 @@ class RopeCuttingTest {
     @MethodSource("provideTestData")
     void rodCutting(int[] prices, int expectedRevenue) {
         var problem = new RopeCutting();
-        int result = problem.cutRodRecursive(prices);
+        int result = problem.cutRod(prices);
 
         assertThat(result).isEqualTo(expectedRevenue);
     }
 
     private static Object[][] provideTestData() {
-        return new Object[][]{{new int[]{1, 5}, 5},};
+        return new Object[][]{{new int[]{1, 5, 8, 9}, 10},};
     }
 }
