@@ -1,16 +1,15 @@
 package com.recursive;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RopeCuttingTest {
 
     @ParameterizedTest
     @MethodSource("provideTestData")
-    void rodCutting(int[] prices, int expectedRevenue ) {
+    void rodCutting(int[] prices, int expectedRevenue) {
         var problem = new RopeCutting();
         int result = problem.cutRodRecursive(prices);
 
