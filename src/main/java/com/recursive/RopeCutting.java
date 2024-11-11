@@ -3,8 +3,7 @@ package com.recursive;
 public class RopeCutting {
 
     public int cutRodRecursive(int[] prices) {
-
-       return cutRod(prices, prices.length);
+       return cutRod(prices, prices.length );
     }
 
     private int cutRod(int[] price, int length) {
@@ -13,7 +12,7 @@ public class RopeCutting {
         int maxValue = Integer.MIN_VALUE;
 
         for (int index = 0; index < length; index++) {
-            int currentVal = price[index] + cutRod(price, length - index - 1);
+            int currentVal = price[index] + cutRod(price, length - index -1);
             maxValue = Math.max(maxValue, currentVal);
         }
 
