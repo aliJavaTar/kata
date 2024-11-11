@@ -12,8 +12,8 @@ public class RopeCutting {
 
         int maxValue = Integer.MIN_VALUE;
 
-        for (int i = 0; i < length; i++) {
-            int currentVal = price[i] + cutRod(price, length - i - 1);
+        for (int index = 0; index < length; index++) {
+            int currentVal = price[index] + cutRod(price, length - index - 1);
             maxValue = Math.max(maxValue, currentVal);
         }
 
