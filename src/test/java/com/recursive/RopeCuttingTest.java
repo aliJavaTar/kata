@@ -3,6 +3,7 @@ package com.recursive;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import static javax.management.Query.in;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RopeCuttingTest {
@@ -12,7 +13,6 @@ class RopeCuttingTest {
     void rodCutting(int[] prices, int expectedRevenue) {
         var problem = new RopeCutting();
         int result = problem.cutRod(prices);
-
         assertThat(result).isEqualTo(expectedRevenue);
     }
 
