@@ -12,7 +12,7 @@ public record RopeCutting(int[] prices) {
     private static final int ONE_METER = 1;
 
     public int GetMostPrice() {
-        return cutRode(prices, prices.length);
+        return catRode(prices, prices.length);
     }
 
     private int cutRode(int[] prices, int length) {
@@ -23,6 +23,15 @@ public record RopeCutting(int[] prices) {
             totalPrice = Math.max(currentPrice, totalPrice);
         }
         return totalPrice;
+    }
+
+    private int catRode(int[] prices, int length) {
+        int maxPrice = 0;
+        for (int index = 0; index < length; index++) {
+            int currentPrice = prices[index] + cutRode(prices, length - index - 1);
+            maxPrice = Math.max(currentPrice, maxPrice);
+        }
+        return maxPrice;
     }
 }
 
