@@ -7,42 +7,25 @@ package com.recursive;
 //  └── cutRod(price, 0) -> 0 (base case)
 
 
-public class RopeCutting {
+public record RopeCutting(int[] prices) {
+    private static final int ZERO = 0;
+    private static final int ONE_METER = 1;
 
-    public int cutRod(int[] prices) {
+    public int GetMostPrice() {
         return cutRode(prices, prices.length);
     }
 
     private int cutRode(int[] prices, int length) {
-        if (length == 0) return 0;
-        int max = 0;
-
-
-        for (int index = 0; index < length; index++) {
-            int currentValue = prices[index] + cutRode(prices, length - index - 1);
-            max = Math.max(currentValue, max);
+        if (length == ZERO) return ZERO;
+        int totalPrice = ZERO;
+        for (int index = ZERO; index < length; index++) {
+            int currentPrice = prices[index] + cutRode(prices, length - index - ONE_METER);
+            totalPrice = Math.max(currentPrice, totalPrice);
         }
-        return max;
+        return totalPrice;
     }
-
-    public int cutRodRecursive(int[] prices) {
-        return cutRod(prices, prices.length);
-    }
-
-    private int cutRod(int[] price, int length) {
-        if (length == 0) return 0;
-
-        int maxValue = Integer.MIN_VALUE;
-
-        for (int index = 0; index < length; index++) {
-            int currentVal = price[index] + cutRod(price, length - index - 1);
-            maxValue = Math.max(maxValue, currentVal);
-        }
-
-        return maxValue;
-    }
-
 }
+
 
 //    public static int cutRodRecursive(int[] prices, int length) {
 //        if (length <= 0)

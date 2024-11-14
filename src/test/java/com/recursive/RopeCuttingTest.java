@@ -11,12 +11,14 @@ class RopeCuttingTest {
     @ParameterizedTest
     @MethodSource("provideTestData")
     void rodCutting(int[] prices, int expectedRevenue) {
-        var problem = new RopeCutting();
-        int result = problem.cutRod(prices);
+        var problem = new RopeCutting(prices);
+        int result = problem.GetMostPrice();
         assertThat(result).isEqualTo(expectedRevenue);
     }
 
     private static Object[][] provideTestData() {
-        return new Object[][]{{new int[]{1, 5, 8, 9}, 10},};
+        return new Object[][]{{new int[]{1, 5, 8, 9}, 10},
+                {new int[]{3, 5, 8, 9, 10, 17, 17, 20}, 24},
+                {new int[] {1, 5, 8, 9, 10, 17, 17, 20}, 22}};
     }
 }
