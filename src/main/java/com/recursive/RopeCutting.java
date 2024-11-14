@@ -15,20 +15,21 @@ public record RopeCutting(int[] prices) {
         return catRode(prices, prices.length);
     }
 
-    private int cutRode(int[] prices, int length) {
-        if (length == ZERO) return ZERO;
-        int totalPrice = ZERO;
-        for (int index = ZERO; index < length; index++) {
-            int currentPrice = prices[index] + cutRode(prices, length - index - ONE_METER);
-            totalPrice = Math.max(currentPrice, totalPrice);
-        }
-        return totalPrice;
-    }
+//    private int cutRode(int[] prices, int length) {
+//        if (length == ZERO) return ZERO;
+//        int totalPrice = ZERO;
+//        for (int index = ZERO; index < length; index++) {
+//            int currentPrice = prices[index] + cutRode(prices, length - index - ONE_METER);
+//            totalPrice = Math.max(currentPrice, totalPrice);
+//        }
+//        return totalPrice;
+//    }
 
     private int catRode(int[] prices, int length) {
-        int maxPrice = 0;
-        for (int index = 0; index < length; index++) {
-            int currentPrice = prices[index] + cutRode(prices, length - index - 1);
+        if (length == ZERO) return ZERO;
+        int maxPrice = ZERO;
+        for (int index = ZERO; index < length; index++) {
+            int currentPrice = prices[index] + catRode(prices, length - index - ONE_METER);
             maxPrice = Math.max(currentPrice, maxPrice);
         }
         return maxPrice;
