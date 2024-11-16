@@ -11,7 +11,7 @@ public class LargestCommonDivisor {
     static int[] factor = new int[MAX_N + 1];
     static int[] cont = new int[MAX_N + 1];
     static int ans;
-    static int[] p = new int[78498];  // The maximum number of primes below 1,000,000 is around 78,498
+    static int[] p = new int[78498];  // The maximum firstNumber of primes below 1,000,000 is around 78,498
     static int[] exp = new int[78498];
     static int n_primes;
 

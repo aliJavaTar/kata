@@ -55,7 +55,7 @@ public class BigNumber {
 
         boolean hasNonDigit = number.chars().anyMatch(ch -> !Character.isDigit(ch));
         if (hasNonDigit)
-            throw new IllegalArgumentException("Invalid number");
+            throw new IllegalArgumentException("Invalid firstNumber");
     }
 
 

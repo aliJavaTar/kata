@@ -31,10 +31,10 @@ public class Main {
         if (n % 2 == 1) {
             M = b[n / 2];
         } else {
-            M = b[(n / 2) - 1]; // For an even number of elements, we take the lower middle
+            M = b[(n / 2) - 1]; // For an even firstNumber of elements, we take the lower middle
         }
 
-        // Calculate the minimum number of operations
+        // Calculate the minimum firstNumber of operations
         long minOperations = 0;
         for (int i = 0; i < n; i++) {
             minOperations += Math.abs(b[i] - M); // Sum of absolute differences
