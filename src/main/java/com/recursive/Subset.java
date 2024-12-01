@@ -1,42 +1,53 @@
 package com.recursive;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Subset {
-    //    "abc" -->  a b c  ab ac  bc abc
+
+
     public void print(String text) {
-        calculateSubSet(text, 0, "");
+        generate(text, 0, "");
     }
 
-    private void calculateSubSet(String text, int index, String current) {
-        if (index == text.length()) {
+    private void generate(String text, int index, String current) {
+        if (index == text.length())
+        {
             System.out.println(current);
             return;
         }
-        calculateSubSet(text, index + 1, current + text.charAt(index));
-        calculateSubSet(text, index + 1, current);
+
+        generate(text, index + 1, current + text.charAt(index));
+        generate(text, index + 1, current);
     }
 
-    public void print_(String text) {
-        String[] split = text.split("");
-
-        String[] strings = calculateNumbers(split, split.length);
-
-    }
-
-    private String[] calculateNumbers(String[] split, String[] helper, int count) {
-        if (count > split.length)
-            throw new IllegalArgumentException("");
-        if (count == 0)
-            return new String[]{""};
-
-//        return calculateNumbers(, , count - 1);
-        List<Integer> integers = new ArrayList<>();
-        for (int index = 0; index < split.length; index++) {
-            integers.add(index);
-        }
-
-    }
+//    //    "abc" -->  a b c  ab ac  bc abc
+//    public void print(String text) {
+//        generate(text, 0, "");
+//    }
+//
+//    private void generateSubsets(String text, int index, String current) {
+//        if (index == text.length()) {
+//            System.out.print(current + " - ");
+//            return;
+//        }
+//        generateSubsets(text, index + 1, current + text.charAt(index));
+//        generateSubsets(text, index + 1, current);
+//    }
+//
+//    private void generateSubsets_rec(String text, int index, String current) {
+//        if (index == text.length()) {
+//            System.out.println(current);
+//            return;
+//        }
+//        generateSubsets_rec(text, index + 1, current + text.charAt(index));
+//        generateSubsets_rec(text, index + 1, current);
+//    }
+//
+//    private void generate(String text, int index, String current) {
+//        if (index == text.length()) {
+//            System.out.println(current);
+//            return;
+//        }
+//        generate(text, index + 1, current + text.charAt(index));
+//        generate(text, index + 1, current);
+//    }
 
 }

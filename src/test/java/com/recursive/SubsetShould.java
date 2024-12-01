@@ -7,6 +7,9 @@ class SubsetShould {
     @Test
     void generate_subset_of_text() {
         var subset = new Subset();
-        subset.print("abc");
+        subset.print("abcdefe");
+
+//        Assertions.assertThat(Arrays.toString(result))
+//                .isEqualTo("[abc, ab, ac, a, bc, b, c, ]");
     }
 }
