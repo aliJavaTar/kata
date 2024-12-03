@@ -1,23 +1,16 @@
 package com.func;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.BinaryOperator;
-import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
-
 public class PrTest {
     public static void main(String[] args) {
 
+
+    }
+}
 //       UnaryOperator;
 //        BinaryOperator;
-
 //        mapper(number -> number * 2, List.of(1, 2, 3, 4)).forEach(System.out::println);
-
-
 //        FucGeneric<String, Integer> test = text -> text.length();
 //        System.out.println(test.execute("ali"));
-
 //        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 //
 //        Consumer<Integer> doubleConsumer = number -> System.out.println("Doubled value: " + (number * 2));
@@ -25,8 +18,7 @@ public class PrTest {
 //        Consumer<Integer> combinedConsumer = printConsumer.andThen(doubleConsumer);
 //        numbers.forEach(combinedConsumer);
 //        Function
-
-        //primitive function
+//primitive function
         /*
          IntToLongFunction
          IntToDoubleFunction
@@ -71,7 +63,6 @@ public class PrTest {
         BooleanSupplier
         LongSupplier
         DoubleSupplier
-
          */
         /*
         Consumer
@@ -80,13 +71,10 @@ public class PrTest {
         IntConsumer
         DoubleConsumer
          */
-
 //        Player t = new Player("", 33);
 //        Predicate<Player> predicate = player -> player.countOfGolden() > 0;
 //        out.println(Predicate.not(predicate).test(t));
-
 //    }
-
 //    private static <T> List<T> mapper(UnaryOperator<Integer> operator, List<Integer> numbers) {
 //        List<Integer> number = new ArrayList<>();
 //        for (Integer i : numbers) {
@@ -104,13 +92,9 @@ public class PrTest {
 //        }
 //        return newString;
 //    }
-
 //    private static Supplier<Integer> convert(int number) {
 //        return () -> Math.abs(number);
 //    }
-
 //    private static Function<Integer, String> convert(final String name) {
 //        return number -> (name + number);
 //    }
-    }
-}
