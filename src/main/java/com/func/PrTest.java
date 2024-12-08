@@ -1,11 +1,24 @@
 package com.func;
 
+import java.util.function.Function;
+
 public class PrTest {
     public static void main(String[] args) {
 
+        Function<Integer, Integer> multiply = x -> x * 3;
+        Function<Integer, Integer> add = x -> x + 2 ;
+        Function<Integer, Integer> integerIntegerFunction = multiply.andThen(add);
+        System.out.println(integerIntegerFunction.apply(1));
+        Function<Integer, Integer> compose = multiply.compose(add);
+        System.out.println(compose.apply(1));
 
     }
 }
+
+
+record Person(String name) {
+}
+
 //       UnaryOperator;
 //        BinaryOperator;
 //        mapper(number -> number * 2, List.of(1, 2, 3, 4)).forEach(System.out::println);
