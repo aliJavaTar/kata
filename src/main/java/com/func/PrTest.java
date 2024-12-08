@@ -1,24 +1,34 @@
 package com.func;
 
-import java.util.function.Function;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class PrTest {
     public static void main(String[] args) {
 
-        Function<Integer, Integer> multiply = x -> x * 3;
-        Function<Integer, Integer> add = x -> x + 2 ;
-        Function<Integer, Integer> integerIntegerFunction = multiply.andThen(add);
-        System.out.println(integerIntegerFunction.apply(1));
-        Function<Integer, Integer> compose = multiply.compose(add);
-        System.out.println(compose.apply(1));
+
+//        Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+//                .reduce((num1, num2) -> num1 + num2)
+//                .ifPresent(System.out::println);
+//
+//        Integer reduce = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+//                .reduce(1, (num1, num2) -> num1 + num2);
+//        System.out.println(reduce);
+//
+//        String text = Stream.of("Hello", "World")
+//                .reduce("", (s1, s2) -> s1 + s2, (s1, s2) -> s1 + s2);
+
 
     }
 }
 
 
-record Person(String name) {
-}
-
+//        Function<Integer, Integer> multiply = x -> x * 3;
+//        Function<Integer, Integer> add = x -> x + 2 ;
+//        Function<Integer, Integer> integerIntegerFunction = multiply.andThen(add);
+//        System.out.println(integerIntegerFunction.apply(1));
+//        Function<Integer, Integer> compose = multiply.compose(add);
+//        System.out.println(compose.apply(1));
 //       UnaryOperator;
 //        BinaryOperator;
 //        mapper(number -> number * 2, List.of(1, 2, 3, 4)).forEach(System.out::println);
