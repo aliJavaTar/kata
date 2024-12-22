@@ -5,11 +5,10 @@ import com.shop.domain.Food;
 import com.shop.domain.ShoppingCarts;
 
 import java.util.List;
-
-public class ApplyFood {
+public class AddFood {
     private final ShoppingCarts shoppingCarts;
 
-    public ApplyFood(ShoppingCarts shoppingCarts) {
+    public AddFood(ShoppingCarts shoppingCarts) {
         this.shoppingCarts = shoppingCarts;
     }
 

@@ -1,14 +1,23 @@
 package com.shop.domain;
 
+import lombok.Getter;
+
 import java.util.Objects;
 
+@Getter
 public class Food {
     private final String name;
-    private final double cost;
 
-    public Food(String name, double cost) {
+    private final double cost;
+    private final double revenue;
+    private final double tax;
+
+
+    public Food(String name, double cost, double revenue, double tax) {
         this.name = name;
         this.cost = cost;
+        this.revenue = revenue;
+        this.tax = tax;
     }
 
     @Override

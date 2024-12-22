@@ -1,10 +1,9 @@
-package com.shop;
+package com.shop.domain.usecase;
 
 import com.shop.domain.Food;
 import com.shop.domain.Inventory;
 
 import com.shop.domain.ShoppingCarts;
-import com.shop.domain.usecase.ApplyFood;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,23 +13,23 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.anyList;
 
-class ShoppingCartShould {
+class AddFoodShould {
 
     private ShoppingCarts cart;
     private Inventory inventory;
-    private ApplyFood applyFood;
+    private AddFood applyFood;
 
     @BeforeEach
     void setUp() {
         cart = Mockito.mock(ShoppingCarts.class);
         inventory = Mockito.mock(Inventory.class);
-        applyFood = new ApplyFood(cart);
+        applyFood = new AddFood(cart);
 //        food = Set.of("Iceberg 🥬", "Tomato 🍅", "Chicken 🍗", "Bread 🍞", "Corn 🌽");
     }
 
 
     @Test
-    void add_foods() {
+    void add_each_food_to_list() {
 
         Mockito.when(inventory.findAll()).thenReturn(getFoods());
         Mockito.when(cart.applyFood(anyList())).thenReturn(getFoods());
@@ -44,7 +43,7 @@ class ShoppingCartShould {
 
 
     private static List<Food> getFoods() {
-        var food = new Food("apple", 1.55);
+        var food = new Food("apple", 1.55,12,12);
         return List.of(food);
     }
 }
