@@ -1,7 +1,7 @@
-package com.shop.usecase.infra;
+package com.shop.infra;
 
-import com.shop.usecase.domain.Food;
-import com.shop.usecase.domain.Inventory;
+import com.shop.domain.Food;
+import com.shop.domain.Inventory;
 
 import java.util.List;
 

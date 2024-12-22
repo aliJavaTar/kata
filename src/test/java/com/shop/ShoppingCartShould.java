@@ -1,8 +1,10 @@
-package com.shop.usecase;
+package com.shop;
 
-import com.shop.usecase.domain.Food;
-import com.shop.usecase.domain.Inventory;
-import com.shop.usecase.domain.ShoppingCarts;
+import com.shop.domain.Food;
+import com.shop.domain.Inventory;
+
+import com.shop.domain.ShoppingCarts;
+import com.shop.domain.usecase.ApplyFood;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,32 +18,30 @@ class ShoppingCartShould {
 
     private ShoppingCarts cart;
     private Inventory inventory;
+    private ApplyFood applyFood;
 
     @BeforeEach
     void setUp() {
         cart = Mockito.mock(ShoppingCarts.class);
         inventory = Mockito.mock(Inventory.class);
+        applyFood = new ApplyFood(cart);
 //        food = Set.of("Iceberg 🥬", "Tomato 🍅", "Chicken 🍗", "Bread 🍞", "Corn 🌽");
     }
 
 
     @Test
     void add_foods() {
-        ShoppingCart shoppingCart = new ShoppingCart(cart);
+
         Mockito.when(inventory.findAll()).thenReturn(getFoods());
         Mockito.when(cart.applyFood(anyList())).thenReturn(getFoods());
 
         var foodList = inventory.findAll();
-        var foodListAdded = shoppingCart.apply(foodList);
+        var foodListAdded = applyFood.apply(foodList);
 
         Assertions.assertThat(foodList)
                 .containsExactlyInAnyOrderElementsOf(foodListAdded);
     }
 
-    @Test
-    void show_list_of_food() {
-
-    }
 
     private static List<Food> getFoods() {
         var food = new Food("apple", 1.55);

@@ -1,4 +1,4 @@
-package com.shop.usecase.domain;
+package com.shop.domain;
 
 
 import java.util.List;

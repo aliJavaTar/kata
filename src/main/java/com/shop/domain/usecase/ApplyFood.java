@@ -1,14 +1,15 @@
-package com.shop.usecase;
+package com.shop.domain.usecase;
 
-import com.shop.usecase.domain.Food;
-import com.shop.usecase.domain.ShoppingCarts;
+
+import com.shop.domain.Food;
+import com.shop.domain.ShoppingCarts;
 
 import java.util.List;
 
-public class ShoppingCart {
+public class ApplyFood {
     private final ShoppingCarts shoppingCarts;
 
-    public ShoppingCart(ShoppingCarts shoppingCarts) {
+    public ApplyFood(ShoppingCarts shoppingCarts) {
         this.shoppingCarts = shoppingCarts;
     }
 
