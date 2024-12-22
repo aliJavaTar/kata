@@ -7,7 +7,6 @@ import static java.lang.Integer.parseInt;
 public class StringExpansion {
     private final String letters;
     private int indexOfFirstParenthesis = -1;
-
     public StringExpansion(String letters) {
         this.letters = letters;
     }
