@@ -1,28 +1,49 @@
 package com.func;
 
-import java.util.List;
-import java.util.stream.Stream;
+import java.util.*;
+import java.util.function.ToIntFunction;
+import java.util.stream.Collectors;
 
 public class PrTest {
     public static void main(String[] args) {
 
 
-//        Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-//                .reduce((num1, num2) -> num1 + num2)
-//                .ifPresent(System.out::println);
-//
-//        Integer reduce = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-//                .reduce(1, (num1, num2) -> num1 + num2);
-//        System.out.println(reduce);
-//
-//        String text = Stream.of("Hello", "World")
-//                .reduce("", (s1, s2) -> s1 + s2, (s1, s2) -> s1 + s2);
+        List<Player> list = List.of(new Player("ali", 12),
+                new Player("ali", 34),
+                new Player("amin", 32),
+                new Player("raha", 23));
+
+
+        IntSummaryStatistics stats = list.stream().collect(Collectors.summarizingInt(Player::countOfGolden));
+        System.out.println("Average: " + stats.getAverage());
+        System.out.println("Max: " + stats.getMax());
+        System.out.println("Min: " + stats.getMin());
+        System.out.println("Sum: " + stats.getSum());
+        System.out.println("Count: " + stats.getCount());
+
+
+        Optional<Integer> collect1 = list.stream().map(Player::countOfGolden).collect(Collectors.maxBy(Comparator.naturalOrder()));
+        System.out.println(collect1.get());
+
+        IntSummaryStatistics intSummaryStatistics = list.stream().mapToInt(Player::countOfGolden).summaryStatistics();
+//        Integer collect = (Integer) intSummaryStatistics;
+//        System.out.println(collect);
+
+        ToIntFunction<? super Player> toIntFunction = Player::countOfGolden;
+        Double test = list.stream().collect(Collectors.averagingInt(toIntFunction));
+        System.out.println(test);
+
+        OptionalDouble average = list.stream().mapToInt(toIntFunction).average();
+
+        System.out.println(average.getAsDouble());
+
+
 
 
     }
 }
 
-
+/*
 //        Function<Integer, Integer> multiply = x -> x * 3;
 //        Function<Integer, Integer> add = x -> x + 2 ;
 //        Function<Integer, Integer> integerIntegerFunction = multiply.andThen(add);
@@ -42,6 +63,18 @@ public class PrTest {
 //        numbers.forEach(combinedConsumer);
 //        Function
 //primitive function
+
+      Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+              .reduce((num1, num2) -> num1 + num2)
+              .ifPresent(System.out::println);
+
+      Integer reduce = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+               .reduce(1, (num1, num2) -> num1 + num2);
+     System.out.println(reduce);
+
+        String text = Stream.of("Hello", "World")
+                .reduce("", (s1, s2) -> s1 + s2, (s1, s2) -> s1 + s2);
+
         /*
          IntToLongFunction
          IntToDoubleFunction
@@ -94,6 +127,15 @@ public class PrTest {
         IntConsumer
         DoubleConsumer
          */
+//        Map<String, Long> collect =
+//                list.stream()
+//                        .collect(Collectors.groupingBy(Player::name, Collectors.counting()));
+//
+
+//        collect.forEach((k, v) -> System.out.println(k + ": " + v));
+//        collect.entrySet().forEach(System.out::println);
+
+//        Spliterator
 //        Player t = new Player("", 33);
 //        Predicate<Player> predicate = player -> player.countOfGolden() > 0;
 //        out.println(Predicate.not(predicate).test(t));
@@ -121,3 +163,12 @@ public class PrTest {
 //    private static Function<Integer, String> convert(final String name) {
 //        return number -> (name + number);
 //    }
+
+//        long count = Stream.of(new Player("ali", 23), new Player("gholam", 63)
+//                        , new Player("reza", 7), new Player("amir", 456))
+//                        .mapToInt();
+//        var all = IntStream.range(0, 101).summaryStatistics();
+//
+//        System.out.println(all);
+//        System.out.println(count);
+//        var intSummaryStatistics = new IntSummaryStatistics();
