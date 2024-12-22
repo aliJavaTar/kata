@@ -10,6 +10,8 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
+import static org.mockito.ArgumentMatchers.anyList;
+
 class ShoppingCartShould {
 
     private ShoppingCarts cart;
@@ -26,12 +28,23 @@ class ShoppingCartShould {
     @Test
     void add_foods() {
         ShoppingCart shoppingCart = new ShoppingCart(cart);
+        Mockito.when(inventory.findAll()).thenReturn(getFoods());
+        Mockito.when(cart.applyFood(anyList())).thenReturn(getFoods());
 
-        Mockito.when(inventory.findAll()).thenReturn(List.of());
-        List<Food> foodList = inventory.findAll();
+        var foodList = inventory.findAll();
+        var foodListAdded = shoppingCart.apply(foodList);
 
-        List<Food> foodListAdded = shoppingCart.apply(foodList);
+        Assertions.assertThat(foodList)
+                .containsExactlyInAnyOrderElementsOf(foodListAdded);
+    }
 
-        Assertions.assertThat(foodList).containsExactlyInAnyOrderElementsOf(foodListAdded);
+    @Test
+    void show_list_of_food() {
+
+    }
+
+    private static List<Food> getFoods() {
+        var food = new Food("apple", 1.55);
+        return List.of(food);
     }
 }
