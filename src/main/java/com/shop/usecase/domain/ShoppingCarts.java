@@ -1,8 +1,8 @@
 package com.shop.usecase.domain;
 
-import java.util.Set;
+import java.util.List;
 
 public interface ShoppingCarts {
 
-    void applyFood(Set<String> food);
+    List<Food> applyFood(List<Food> food);
 }
