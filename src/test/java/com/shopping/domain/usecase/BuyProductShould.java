@@ -28,17 +28,22 @@ class BuyProductShould {
     void calculatePriceOfProduct() {
         // product -- > ShoppingCart
         // ShoppingCart --> list product
-        var shoppingCarts = mock(ShoppingCarts.class);
-        var e1 = new Product(1, 12, 0);
-        var e2 = new Product(2, 12, .1);
 
+        var shoppingCarts = mock(ShoppingCarts.class);
+
+        var e1 = new Product(1, 5, .1);
+        // 5.5
+        var e2 = new Product(2, 4, .5);
+        // 6
         List<Product> products = List.of(e1, e2);
 
         when(shoppingCarts.getProduct()).thenReturn(products);
 
-        var buyProduct = new BuyProduct();
+        var buyProduct = new BuyProduct(shoppingCarts);
 
-        buyProduct
+        double totalPrice = buyProduct.calculatePrice();
+
+        Assertions.assertThat(totalPrice).isEqualTo(11.5);
 
     }
 

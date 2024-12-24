@@ -11,4 +11,18 @@ public class Product {
         this.price = price;
         this.tax = tax;
     }
+
+
+    public double calculateTotalPrice() {
+        return price + (price * tax);
+    }
+
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getTax() {
+        return tax;
+    }
 }
