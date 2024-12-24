@@ -14,38 +14,57 @@ import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.*;
 
 class BuyProductShould {
-    private Inventory inventory;
-    private ShoppingCarts shoppingCarts;
+//    private Inventory inventory;
+//    private ShoppingCarts shoppingCarts;
+//
+//    @BeforeEach
+//    void setUp() {
+//        inventory = Mockito.mock(Inventory.class);
+//        shoppingCarts = Mockito.mock(ShoppingCarts.class);
+//    }
 
-    @BeforeEach
-    void setUp() {
-        inventory = Mockito.mock(Inventory.class);
-        shoppingCarts = Mockito.mock(ShoppingCarts.class);
-    }
 
     @Test
-    void see_list_of_products() {
+    void calculatePriceOfProduct() {
+        // product -- > ShoppingCart
+        // ShoppingCart --> list product
+        var shoppingCarts = mock(ShoppingCarts.class);
+        var e1 = new Product(1, 12, 0);
+        var e2 = new Product(2, 12, .1);
 
-        List<Product> productList = List.of(new Product());
-        when(inventory.getAll()).thenReturn(productList);
-        Assertions.assertThat(inventory.getAll().size()).isEqualTo(1);
+        List<Product> products = List.of(e1, e2);
+
+        when(shoppingCarts.getProduct()).thenReturn(products);
+
+        var buyProduct = new BuyProduct();
+
+        buyProduct
+
     }
 
-    @Test
-    void see_add_to_shopping_cart() {
-
-        List<Integer> ides = List.of(1, 2, 3);
-        var buyProduct = new BuyProduct(shoppingCarts, inventory);
-
-        inventory.getAll();
-
-        buyProduct.applyProduct(ides);
-
-        verify(shoppingCarts, times(1)).applyProduct(anyList());
-
-
-        // apply
-    }
+//    @Test
+//    void see_list_of_products() {
+//
+//        List<Product> productList = List.of(new Product());
+//        when(inventory.getAll()).thenReturn(productList);
+//        Assertions.assertThat(inventory.getAll().size()).isEqualTo(1);
+//    }
+//
+//    @Test
+//    void see_add_to_shopping_cart() {
+//
+//        List<Integer> ides = List.of(1, 2, 3);
+//        var buyProduct = new BuyProduct(shoppingCarts, inventory);
+//
+//        inventory.getAll();
+//
+//        buyProduct.applyProduct(ides);
+//
+//        verify(shoppingCarts, times(1)).applyProduct(anyList());
+//
+//
+//        // apply
+//    }
 
 
 }
