@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Inventory {
 
-    List<Product> getAll();
+//    List<Product> getAll();
 }

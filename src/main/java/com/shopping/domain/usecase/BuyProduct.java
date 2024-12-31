@@ -1,23 +1,25 @@
 package com.shopping.domain.usecase;
 
 
-import com.shopping.domain.Inventory;
+import com.shopping.domain.ShoppingCart;
 import com.shopping.domain.ShoppingCarts;
-
-import java.util.List;
 
 public class BuyProduct {
 
-    private final ShoppingCarts carts;
-    private final Inventory inventory;
+    private final ShoppingCarts shoppingCarts;
 
-    public BuyProduct(ShoppingCarts carts, Inventory inventory) {
-        this.carts = carts;
-        this.inventory = inventory;
+    public BuyProduct(ShoppingCarts shoppingCarts) {
+        this.shoppingCarts = shoppingCarts;
     }
 
-    public void applyProduct(List<Integer> ides) {
+    // 1
+    public double calculatePrice() {
 
-//        carts.applyProduct();
+        ShoppingCart shoppingCart = shoppingCarts.getByUserId(1);
+
+        return shoppingCart.calculateTotalPriceOfProducts();
+
+//        return shoppingCarts.getProduct()
+//                .stream().mapToDouble(Product::calculateTotalPrice).sum();
     }
 }
