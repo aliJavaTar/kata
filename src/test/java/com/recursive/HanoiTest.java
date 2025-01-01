@@ -1,4 +1,4 @@
-package com.algo;
+package com.recursive;
 
 import org.junit.jupiter.api.Test;
 
@@ -34,7 +34,7 @@ class HanoiTest {
 
     @Test
     void hanoi__() {
-        var hanoi = new Hanoi(100000);
+        var hanoi = new Hanoi(3);
 
         List<String> result = hanoi.calculate();
 

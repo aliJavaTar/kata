@@ -1,4 +1,4 @@
-package com.algo;
+package com.recursive;
 
 import java.util.ArrayList;
 import java.util.List;
