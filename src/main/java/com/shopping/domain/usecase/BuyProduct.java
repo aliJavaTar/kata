@@ -14,12 +14,13 @@ public class BuyProduct {
 
     // 1
     public double calculatePrice() {
-
-        ShoppingCart shoppingCart = shoppingCarts.getByUserId(1);
-
-        return shoppingCart.calculateTotalPriceOfProducts();
+        return 0;
+//        ShoppingCart shoppingCart = shoppingCarts.getByUserId(1);
+//
+//        return shoppingCart.calculateTotalPriceOfProducts();
 
 //        return shoppingCarts.getProduct()
 //                .stream().mapToDouble(Product::calculateTotalPrice).sum();
+//    }
     }
 }
