@@ -8,12 +8,8 @@ class OrderServiceTest {
     @Test
     void testShipOrder() {
         // Arrange
-        var mockAddress = mock(Address.class);
         var mockCustomer = mock(Customer.class);
-
-        when(mockAddress.getStreet()).thenReturn("789 Pine St");
-        when(mockCustomer.getAddress()).thenReturn(mockAddress);
-
+        when(mockCustomer.getAddress()).thenReturn("789 Pine St");
         var orderService = new OrderService();
 
         // Act
@@ -21,6 +17,5 @@ class OrderServiceTest {
 
         // Assert
         verify(mockCustomer, times(1)).getAddress();
-        verify(mockAddress, times(1)).getStreet();
     }
 }

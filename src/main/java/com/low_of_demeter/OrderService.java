@@ -3,10 +3,14 @@ package com.low_of_demeter;
 public class OrderService {
     public void shipOrder(Customer customer) {
         // ❌ VIOLATION: Directly accessing internal objects ("Train Wreck")
-        String street = customer.getAddress().getStreet();
+        String street = customer.getAddress();
         System.out.println("Shipping order to: " + street);
     }
 }
+
+
+
+
 /*
 STEP 2: WHY THIS CODE IS BAD
 ----------------------------------
@@ -26,7 +30,13 @@ STEP 2: WHY THIS CODE IS BAD
 
 // STEP 3: REFACTORED CODE - Follows the Law of Demeter
 
-
+ /*
+ The Law of Demeter (LoD), also known as the principle of least knowledge, is a design guideline
+  for developing software, particularly in object-oriented programming.
+   It suggests that an object should only interact with its immediate "friends" and not communicate with
+ objects that it does not directly know.
+  This principle promotes loose coupling and increases modularity in software design.
+  */
 
 
 /*
