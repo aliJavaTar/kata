@@ -1,13 +1,19 @@
 package com.s;
 
-import java.util.Objects;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import java.util.Objects;
+@NoArgsConstructor
 public class User {
 
+    @Getter
     private int id;
+    private String name;
 
-    public int getId() {
-        return id;
+    public User(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     @Override
