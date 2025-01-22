@@ -1,4 +1,4 @@
-package com.tdd;
+package com.tdd.fake;
 
 import com.s.User;
 import org.junit.jupiter.api.Test;
