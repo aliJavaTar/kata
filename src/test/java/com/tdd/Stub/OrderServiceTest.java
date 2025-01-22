@@ -11,7 +11,7 @@ class OrderServiceTest {
 
     @Test
     void testOrderProcessingWithStub() {
-        // Create a mock of PaymentService
+
         PaymentService paymentService = mock(PaymentService.class);
         when(paymentService.processPayment(anyDouble())).thenReturn(true);
 
