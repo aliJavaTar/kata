@@ -14,5 +14,11 @@ class NotificationServiceTest {
         notificationService.notifyUser("test@example.com","Subject","Body");
 
         verify(emailService).sendEmail("test@example.com", "Subject", "Body");
+
+        // Verify interaction (mocking)
+//        verify(paymentService).processPayment(200.0);
+//
+//        // Verify the method was called exactly once
+//        verify(paymentService, times(1)).processPayment(200.0);
     }
 }
