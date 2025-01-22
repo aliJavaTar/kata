@@ -1,5 +1,7 @@
 package com.tdd.spi;
 
+import org.junit.jupiter.api.Test;
+
 import static org.mockito.Mockito.*;
 
 class CleaningRobot {
@@ -12,10 +14,12 @@ class CleaningRobot {
     }
 }
 
-public class SpyExample {
-    public static void main(String[] args) {
-        CleaningRobot realRobot = new CleaningRobot();
-        
+public class SpyTest {
+
+    @Test
+    public void test() {
+        var realRobot = new CleaningRobot();
+
         CleaningRobot spyRobot = spy(realRobot);
 
         spyRobot.cleanDesk();
@@ -24,5 +28,8 @@ public class SpyExample {
 
         verify(spyRobot).cleanDesk();
         verify(spyRobot).cleanUnderBed();
+
     }
+
+
 }
