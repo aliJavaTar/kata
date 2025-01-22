@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyDouble;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class OrderServiceTest {
 
@@ -19,6 +18,21 @@ class OrderServiceTest {
         boolean result = orderService.processOrder(100.0);
 
         assertTrue(result);
+    }
+
+
+    @Test
+    void testOrderProcessingWithMock() {
+        PaymentService paymentService = mock(PaymentService.class);
+
+        OrderService orderService = new OrderService(paymentService);
+
+        orderService.processOrder(200.0);
+
+
+        verify(paymentService).processPayment(200.0);
+
+        verify(paymentService, times(1)).processPayment(200.0);
     }
 }
 
