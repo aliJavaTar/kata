@@ -13,4 +13,8 @@ public class UserService {
         userRepository.save(user);
         return "User created!";
     }
+
+    public User getUserById(int id) {
+        return userRepository.findUserById(id);
+    }
 }

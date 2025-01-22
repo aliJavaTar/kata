@@ -4,6 +4,7 @@ import com.s.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 class UserServiceTest {
     @Test
@@ -16,4 +17,5 @@ class UserServiceTest {
 
         assertEquals("User created!", response);
     }
+
 }

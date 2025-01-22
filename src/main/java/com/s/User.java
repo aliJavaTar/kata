@@ -4,11 +4,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Objects;
+
 @NoArgsConstructor
 public class User {
 
     @Getter
     private int id;
+    @Getter
     private String name;
 
     public User(int id, String name) {

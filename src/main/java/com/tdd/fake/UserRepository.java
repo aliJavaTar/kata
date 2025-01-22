@@ -4,4 +4,6 @@ import com.s.User;
 
 public interface UserRepository {
     void save(User user);
+
+    User findUserById(int id);
 }

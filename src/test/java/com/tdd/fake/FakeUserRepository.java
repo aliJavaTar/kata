@@ -14,6 +14,11 @@ public class FakeUserRepository implements UserRepository {
         database.put(user.getId(), user);
     }
 
+    @Override
+    public User findUserById(int id) {
+        return database.get(id);
+    }
+
 //    @Override
 //    public User findById(int id) {
 //        return database.get(id);

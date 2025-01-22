@@ -11,7 +11,7 @@ class OrderServiceTest {
     @Test
     void testOrderProcessingWithStub() {
 
-        PaymentService paymentService = mock(PaymentService.class);
+        var paymentService = mock(PaymentService.class);
         when(paymentService.processPayment(anyDouble())).thenReturn(true);
 
         OrderService orderService = new OrderService(paymentService);
@@ -23,15 +23,12 @@ class OrderServiceTest {
 
     @Test
     void testOrderProcessingWithMock() {
-        PaymentService paymentService = mock(PaymentService.class);
-
-        OrderService orderService = new OrderService(paymentService);
+        var paymentService = mock(PaymentService.class);
+        var orderService = new OrderService(paymentService);
 
         orderService.processOrder(200.0);
 
-
         verify(paymentService).processPayment(200.0);
-
         verify(paymentService, times(1)).processPayment(200.0);
     }
 }
