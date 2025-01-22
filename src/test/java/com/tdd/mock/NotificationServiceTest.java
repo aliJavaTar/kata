@@ -11,10 +11,8 @@ class NotificationServiceTest {
         EmailService emailService = mock(EmailService.class);
         NotificationService notificationService = new NotificationService(emailService);
 
-        // Call the method under test
-        notificationService.notifyUser("test@example.com");
+        notificationService.notifyUser("test@example.com","Subject","Body");
 
-        // Verify that the emailService.sendEmail method was called with correct arguments
         verify(emailService).sendEmail("test@example.com", "Subject", "Body");
     }
 }

@@ -7,7 +7,7 @@ public class NotificationService {
         this.emailService = emailService;
     }
 
-    public void notifyUser(String email) {
-        emailService.sendEmail(email, "Subject", "Body");
+    public void notifyUser(String email,String subject, String body) {
+        emailService.sendEmail(email, subject, body);
     }
 }
