@@ -8,8 +8,8 @@ import static org.mockito.Mockito.verify;
 class NotificationServiceTest {
     @Test
     public void testNotifyUserWithMock() {
-        EmailService emailService = mock(EmailService.class);
-        NotificationService notificationService = new NotificationService(emailService);
+        var emailService = mock(EmailService.class);
+        var notificationService = new NotificationService(emailService);
 
         notificationService.notifyUser("test@example.com","Subject","Body");
 

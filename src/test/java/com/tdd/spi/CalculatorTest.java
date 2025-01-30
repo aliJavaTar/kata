@@ -9,11 +9,10 @@ class CalculatorTest {
 
     @Test
     void testPartialMockingWithSpy() {
-        Calculator calculator = spy(new Calculator());
-
+        var calculator = spy(new Calculator());
         when(calculator.add(5, 3)).thenReturn(100);
-
         assertEquals(100, calculator.add(5, 3));
+
         assertEquals(2, calculator.subtract(5, 3));
 
         verify(calculator).add(5, 3);

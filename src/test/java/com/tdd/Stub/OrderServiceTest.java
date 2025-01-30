@@ -14,7 +14,8 @@ class OrderServiceTest {
         var paymentService = mock(PaymentService.class);
         when(paymentService.processPayment(anyDouble())).thenReturn(true);
 
-        OrderService orderService = new OrderService(paymentService);
+        var orderService = new OrderService(paymentService);
+
         boolean result = orderService.processOrder(100.0);
 
         assertTrue(result);

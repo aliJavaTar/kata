@@ -12,7 +12,7 @@ class UserServiceTest {
         var fakeRepo = new FakeUserRepository();
         var userService = new UserService(fakeRepo);
 
-        User user = new User(1, "John Doe");
+        var user = new User(1, "John Doe");
         String response = userService.createUser(user);
 
         assertEquals("User created!", response);
