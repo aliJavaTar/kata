@@ -7,8 +7,3 @@ public class SalaryCalculator {
 }
 
 
-//        return switch (employee.getEmploymentType()) {
-//            case FULL_TIME -> employee.getBaseSalary();
-//            case PART_TIME -> employee.getBaseSalary() / 2;
-////            case CONTRACTOR -> ;  Tell don't ask
-//        };
