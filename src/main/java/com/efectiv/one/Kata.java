@@ -6,10 +6,13 @@ import java.util.Set;
 
 public class Kata {
     void learn() {
+
         String badPracticeText = new String("ali");
+
         String goodPracticeText = "ali";
 
 //        Boolean badPractice = new Boolean(true);
+
         Boolean goodPractice = Boolean.valueOf("true");
 
 
@@ -26,7 +29,10 @@ public class Kata {
     private static long sum() {
         Long sum = 0L;
         for (long i = 0; i <= Integer.MAX_VALUE; i++)
+        {
             sum += i;
+        }
+
         return sum;
     }
 
@@ -43,8 +49,7 @@ public class Kata {
         map.put("B", 2L);
         Set<String> test = map.keySet();
         test.add("C");
-
-
+        // like view
     }
 
     public Map<String, Long> removeKey() {

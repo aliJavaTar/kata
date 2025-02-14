@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class KataShould {
 
     @Test
-    void throw_exception_when_add_value_to_view() {
+    void throw_exception_when_add_value() {
         var kata = new Kata();
         Assertions.assertThatThrownBy(kata::add)
                 .isInstanceOf(UnsupportedOperationException.class);
@@ -26,7 +26,6 @@ class KataShould {
 }
 
 /*
-
 UnsupportedOperationException
 is an exception in Java that indicates that the method
 being called is not supported by the object.
