@@ -20,10 +20,5 @@ public class Employee {
     public double calculateSalary() {
         return salaryCalculator.calculate(this);
     }
-//    public double calculate(CalculateSalary calculateSalary) {
-//        return switch (getEmploymentType()) {
-//            case FULL_TIME -> new SalaryCalculatorFullTime().calculate();
-//            case PART_TIME ->  new SalaryCalculatorPartTime().calculate();
-//        };
-//    }
+
 }
