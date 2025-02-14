@@ -1,11 +1,11 @@
 package com.solid.ocp.good;
 
-import com.solid.ocp.bad.CalculateSalary;
 
-public class SalaryCalculatorFullTime implements CalculateSalary {
+
+public class SalaryCalculatorFullTime implements SalaryCalculator {
 
     @Override
-    public double calculateSalary() {
-        return 0;
+    public double calculate(Employee employee) {
+        return employee.getBaseSalary();
     }
 }
