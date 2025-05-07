@@ -10,7 +10,7 @@ class InsertTest {
 
     @Test
     void shouldInsertTheElementIntoRightPositionOfTheArray() {
-        int position = 2;
+        int position = 3;
         int numberOfElements = 50;
         int[] array = new int[5];
         array[0] = 1;
