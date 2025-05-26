@@ -1,6 +1,8 @@
 package com.math.dsa;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,14 +15,11 @@ class FactorialShould {
         assertThat(result).isEqualTo(1);
     }
 
-    @Test
-    void calculate_factorial_of_number() {
-        var factorial = new Factorial(1);
+    @ParameterizedTest
+    @CsvSource({"2,2", "5,120"})
+    void calculate_factorial_of_number(int input, int expected) {
+        var factorial = new Factorial(input);
         int result = factorial.calculate();
-        assertThat(result).isEqualTo(1);
-
-        var factorial1 = new Factorial(2);
-        int result1 = factorial1.calculate();
-        assertThat(result1).isEqualTo(2);
+        assertThat(result).isEqualTo(expected);
     }
 }
