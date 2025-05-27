@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class FactorialShould {
@@ -14,7 +16,7 @@ class FactorialShould {
         int result = factorial.calculate();
         assertThat(result).isEqualTo(1);
     }
-
+    // 2 and 5 - > min of them its 2,222,555 000
     @ParameterizedTest
     @CsvSource({"2,2", "5,120"})
     void calculate_factorial_of_number(int input, int expected) {
