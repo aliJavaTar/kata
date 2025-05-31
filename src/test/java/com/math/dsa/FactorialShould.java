@@ -1,9 +1,11 @@
 package com.math.dsa;
 
+import org.apache.commons.lang3.JavaVersion;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.EnumSource;
 
 import java.math.BigDecimal;
 
@@ -13,6 +15,7 @@ class FactorialShould {
 
     @Test
     @EnabledForJreRange(min = JRE.JAVA_11,max = JRE.JAVA_21)
+//    @EnumSource(value = JavaVersion.class , names = {"ADMIN" , "USER"})
     void out_put_zero_when_input_is_null() {
         var factorial = new Factorial(0);
         int result = factorial.calculate();
