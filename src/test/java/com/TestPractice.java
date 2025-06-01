@@ -4,10 +4,12 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIf;
 import org.junit.jupiter.api.condition.EnabledIf;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
+@ExtendWith(Bef.class)
 public class TestPractice {
     @Test
     @EnabledIf("isSunday")
