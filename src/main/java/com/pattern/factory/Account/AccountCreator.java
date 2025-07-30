@@ -9,9 +9,8 @@ public abstract class AccountCreator {
         if (balanceDefinition < account.minimumBalanceDefinition()) {
             throw new IllegalArgumentException("");
         }
-        var accountEntity = new AccountEntity(account.interestingRate());
-//        save(accountEntity);
-        return accountEntity;
+        //        save(accountEntity);
+        return new AccountEntity(account.interestingRate());
     }
 
     protected abstract Account getAccount();
